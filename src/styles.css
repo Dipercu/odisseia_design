@@ -163,3 +163,18 @@
 /* Disable all parallax movement and fixed backgrounds. */
 .scene-backdrop { background-attachment: scroll !important; transform: none !important; will-change: auto !important; }
 .parallax-back, .parallax-foreground { background-attachment: scroll !important; transform: none !important; animation: none !important; will-change: auto !important; }
+
+/* Image clarity fix: source scenes are extremely wide strips (up to 3014x284).
+   Never scale them to fill tall sections. Show at natural aspect ratio
+   and let the section's navy background fill remaining vertical space. */
+.scene-backdrop {
+  background-size: 100% auto !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-attachment: scroll !important;
+  transform: none !important;
+  filter: none !important;
+}
+@media (min-width: 3014px) {
+  .scene-backdrop { background-size: 3014px auto !important; }
+}
