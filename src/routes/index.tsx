@@ -62,14 +62,16 @@ function Home() {
           <div className="mt-9 flex flex-wrap gap-4"><a href="#espera" className="inline-flex items-center gap-2 rounded-xl bg-[#e9bd61] px-7 py-4 font-bold text-[#081527] shadow-[0_12px_45px_#e9bd6133] transition hover:-translate-y-1 hover:bg-[#ffda82]">Quero fazer parte <ArrowRight size={19}/></a><a href="#experiencia" className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-7 py-4 font-semibold transition hover:border-[#e9bd61]/70 hover:bg-white/5">Conhecer a jornada <Compass size={18}/></a></div>
           <p className="mt-8 flex items-center gap-2 text-sm text-slate-400"><ShieldCheck size={17} className="text-[#e9bd61]"/> Cadastre-se para receber novidades do lançamento.</p>
         </div>
-        <div className="relative mx-auto w-full max-w-[520px]">
-          <div className="absolute -inset-8 rounded-full bg-[#e9bd61]/10 blur-3xl"/>
-          <div className="relative overflow-hidden rounded-[2rem] border border-[#e9bd61]/25 bg-gradient-to-br from-[#17395b] via-[#0b2039] to-[#091629] p-5 shadow-2xl">
-            <img src="/odisseia-hero.png" alt="Mascote corujinha do Odisseia Bíblica em uma aventura" className="aspect-[4/4.4] w-full rounded-2xl object-cover" onError={(e)=>{e.currentTarget.style.display="none";e.currentTarget.nextElementSibling?.classList.remove("hidden");}}/>
-            <div className="hidden aspect-[4/4.4] flex-col items-center justify-center gap-5 rounded-2xl border border-dashed border-[#e9bd61]/30 bg-[#112b48] text-center"><Compass size={90} className="text-[#e9bd61]"/><p className="max-w-xs px-6 font-serif text-2xl text-[#f4d58b]">Uma aventura extraordinária está prestes a começar</p></div>
-            <div className="absolute bottom-9 left-9 right-9 rounded-2xl border border-white/20 bg-[#061326]/80 p-4 backdrop-blur-lg"><span className="text-xs uppercase tracking-[.2em] text-[#e9bd61]">Jogue • Aprenda • Viva a Palavra</span><p className="mt-1 font-serif text-2xl">Odisseia Bíblica</p></div>
+        <div className="relative mx-auto flex min-h-[430px] w-full max-w-[570px] items-center justify-center sm:min-h-[550px]">
+          <div aria-hidden="true" className="pointer-events-none absolute inset-[10%] rounded-full bg-[#e9bd61]/20 blur-[90px]"/>
+          <div aria-hidden="true" className="pointer-events-none absolute inset-[18%] rounded-full border border-[#e9bd61]/20 shadow-[0_0_110px_#d6a34c35]"/>
+          <div aria-hidden="true" className="pointer-events-none absolute left-[9%] top-[16%] text-[#e9bd61]/80 animate-pulse"><Sparkles size={28}/></div>
+          <div aria-hidden="true" className="pointer-events-none absolute right-[9%] top-[28%] text-[#e9bd61]/70 animate-pulse"><Star size={20}/></div>
+          <div aria-hidden="true" className="pointer-events-none absolute bottom-[21%] left-[8%] text-[#e9bd61]/60"><Star size={15}/></div>
+          <img src="/odisseia-hero.png" alt="Mascote oficial do Odisseia Bíblica: corujinha aventureira com mochila e bússola dourada" className="relative z-10 h-auto w-full max-w-[560px] object-contain drop-shadow-[0_30px_45px_rgba(0,0,0,0.45)] motion-safe:animate-[odisseia-float_6s_ease-in-out_infinite]" />
+          <div className="absolute bottom-0 left-1/2 z-20 w-max max-w-[95%] -translate-x-1/2 rounded-2xl border border-[#e9bd61]/30 bg-[#061326]/85 px-6 py-3 text-center shadow-xl backdrop-blur-lg">
+            <span className="text-xs font-semibold uppercase tracking-[.17em] text-[#e9bd61]">Jogue • Aprenda • Viva a Palavra</span>
           </div>
-          <div className="absolute -right-3 top-10 rounded-2xl border border-[#e9bd61]/30 bg-[#0b2039] p-4 shadow-xl md:-right-8"><Star className="text-[#e9bd61]"/></div>
         </div>
       </div>
     </section>
