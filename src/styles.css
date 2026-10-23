@@ -143,38 +143,37 @@
   }
 }
 
-@keyframes odisseia-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-18px); }
+/* Odisseia Bíblica brand */
+:root {
+  --navy: oklch(0.17 0.045 255);
+  --navy-deep: oklch(0.13 0.04 255);
+  --gold: oklch(0.84 0.13 85);
+  --gold-soft: oklch(0.9 0.09 88);
+  --parchment: oklch(0.93 0.04 85);
+  --ink: oklch(0.25 0.04 60);
+  --success: oklch(0.72 0.17 145);
 }
+@theme inline {
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-parchment: var(--parchment);
+  --color-ink: var(--ink);
+  --color-success: var(--success);
+  --font-display: "Cinzel", serif;
+  --font-sans: "Montserrat", system-ui, sans-serif;
+}
+body { font-family: var(--font-sans); }
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+@utility btn-gold {
+  display: inline-flex; align-items: center; gap: .75rem;
+  border-radius: 9999px; background: var(--gold); color: var(--navy-deep);
+  font-weight: 700; text-transform: uppercase; letter-spacing: .02em;
+  box-shadow: 0 10px 30px -10px color-mix(in oklab, var(--gold) 70%, transparent);
+  transition: transform .2s, background .2s;
+  &:hover { background: var(--gold-soft); transform: translateY(-2px); }
 }
-
-/* Independent cinematic layers: background moves slower than foreground. */
-.parallax-back { background-attachment: fixed; transform: scale(1.035); }
-.parallax-foreground { animation: odisseia-float 6s ease-in-out infinite; will-change: transform; }
-@media (max-width: 767px), (prefers-reduced-motion: reduce) {
-  .parallax-back { background-attachment: scroll; transform: none; }
-  .parallax-foreground { animation: none; will-change: auto; }
-}
-
-/* Disable all parallax movement and fixed backgrounds. */
-.scene-backdrop { background-attachment: scroll !important; transform: none !important; will-change: auto !important; }
-.parallax-back, .parallax-foreground { background-attachment: scroll !important; transform: none !important; animation: none !important; will-change: auto !important; }
-
-/* Image clarity fix: source scenes are extremely wide strips (up to 3014x284).
-   Never scale them to fill tall sections. Show at natural aspect ratio
-   and let the section's navy background fill remaining vertical space. */
-.scene-backdrop {
-  background-size: 100% auto !important;
-  background-repeat: no-repeat !important;
-  background-position: center center !important;
-  background-attachment: scroll !important;
-  transform: none !important;
-  filter: none !important;
-}
-@media (min-width: 3014px) {
-  .scene-backdrop { background-size: 3014px auto !important; }
-}
+@utility fade-l { background: linear-gradient(90deg, var(--navy-deep) 0%, color-mix(in oklab, var(--navy-deep) 70%, transparent) 40%, transparent 70%); }
+@utility fade-r { background: linear-gradient(270deg, var(--navy-deep) 0%, color-mix(in oklab, var(--navy-deep) 70%, transparent) 40%, transparent 70%); }
+@utility fade-b { background: linear-gradient(0deg, var(--navy-deep), transparent 60%); }
