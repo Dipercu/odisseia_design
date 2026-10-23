@@ -159,3 +159,7 @@
   .parallax-back { background-attachment: scroll; transform: none; }
   .parallax-foreground { animation: none; will-change: auto; }
 }
+
+/* Disable all parallax movement and fixed backgrounds. */
+.scene-backdrop { background-attachment: scroll !important; transform: none !important; will-change: auto !important; }
+.parallax-back, .parallax-foreground { background-attachment: scroll !important; transform: none !important; animation: none !important; will-change: auto !important; }
