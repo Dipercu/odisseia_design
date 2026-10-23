@@ -151,3 +151,11 @@
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
 }
+
+/* Independent cinematic layers: background moves slower than foreground. */
+.parallax-back { background-attachment: fixed; transform: scale(1.035); }
+.parallax-foreground { animation: odisseia-float 6s ease-in-out infinite; will-change: transform; }
+@media (max-width: 767px), (prefers-reduced-motion: reduce) {
+  .parallax-back { background-attachment: scroll; transform: none; }
+  .parallax-foreground { animation: none; will-change: auto; }
+}
