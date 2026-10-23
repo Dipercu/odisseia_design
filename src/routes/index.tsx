@@ -42,18 +42,38 @@ function OdisseiaLanding() {
       {menu && <nav className="flex flex-col gap-4 border-t border-white/10 bg-[#041327] px-6 py-5 md:hidden">{[["Início","#inicio"],["Como funciona","#como-funciona"],["Funcionalidades","#funcionalidades"],["Perguntas","#perguntas"],["Lista de espera","#espera"]].map(([label,href])=><a key={href} href={href} onClick={()=>setMenu(false)}>{label}</a>)}</nav>}
     </div>
 
-    <div className="mx-auto w-full max-w-[1600px] pt-16">
-      {imageReady ? <div className="relative w-full overflow-hidden">
-        <img src="/odisseia-layout.webp" alt="Odisseia Bíblica: aventura cinematográfica com mascote corujinha, cenários bíblicos, desafios, conquistas, comunidade e lista de espera" className="block h-auto w-full" onError={()=>setImageReady(false)} />
-        <div id="inicio" className="absolute left-0 top-0 h-[20.8%] w-full scroll-mt-20" aria-hidden="true"/>
-        <div id="como-funciona" className="absolute left-0 top-[20.8%] h-[25.5%] w-full scroll-mt-20" aria-hidden="true"/>
-        <div id="funcionalidades" className="absolute left-0 top-[46.3%] h-[23.9%] w-full scroll-mt-20" aria-hidden="true"/>
-        <div id="perguntas" className="absolute left-0 top-[58.3%] h-[12%] w-full scroll-mt-20" aria-hidden="true"/>
-        <a href="#espera" aria-label="Entrar na lista de espera" className="absolute left-[7%] top-[13.9%] h-[3.6%] w-[30%] rounded-full outline-offset-4 focus-visible:outline-4 focus-visible:outline-[#ffdd85]"/>
-        <a href="#espera" aria-label="Entrar na lista de espera" className="absolute left-[47%] top-[89.4%] h-[2.6%] w-[32%] rounded-full outline-offset-4 focus-visible:outline-4 focus-visible:outline-[#ffdd85]"/>
-      </div> : <div className="flex min-h-[65vh] flex-col items-center justify-center gap-5 px-6 text-center"><img src="/odisseia-hero.png" className="w-52" alt="Mascote Odisseia Bíblica"/><h1 className="font-serif text-4xl text-[#f4d38c]">Uma nova jornada está chegando</h1><p className="max-w-xl text-slate-300">Adicione o arquivo odisseia-layout.webp na pasta public para exibir o layout cinematográfico aprovado.</p><a href="#espera" className="rounded-xl bg-[#f6c65f] px-6 py-3 font-bold text-[#061426]">Lista de espera</a></div>}
+    <div id="inicio" className="pt-16">
+      <section className="relative isolate flex min-h-[720px] items-center overflow-hidden py-24 lg:min-h-[850px]">
+        <div className="absolute inset-0 -z-20 bg-[#061426]"/>
+        <div className="parallax-back absolute inset-0 -z-10 bg-cover bg-center opacity-90" style={{backgroundImage:"url('/scenes/jornada.svg')"}}/>
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#041327]/95 via-[#041327]/70 to-[#041327]/20"/>
+        <div className="mx-auto grid w-full max-w-7xl items-center gap-8 px-5 lg:grid-cols-[1fr_1.1fr] lg:px-8">
+          <div className="relative z-20"><p className="mb-5 text-xs font-bold uppercase tracking-[.3em] text-[#f6c65f]">Uma nova jornada está começando</p>
+            <h1 className="font-serif text-5xl leading-[1.05] md:text-7xl">Descubra histórias reais <span className="text-[#f6c65f]">que transformam sua vida</span></h1>
+            <p className="mt-6 max-w-lg text-lg leading-8 text-slate-200">Odisseia Bíblica é uma aventura de perguntas e respostas que torna o aprendizado da Bíblia uma experiência envolvente e divertida.</p>
+            <a href="#espera" className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#f6c65f] px-7 py-4 font-bold text-[#061426] shadow-xl transition hover:-translate-y-1 hover:bg-[#ffdc83]"><ArrowRight size={20}/> Entrar na lista de espera</a>
+            <div className="mt-10 flex flex-wrap gap-5 text-sm text-[#f4d38c]"><span>✦ Desafios</span><span>✦ Histórias bíblicas</span><span>✦ Conquistas</span></div>
+          </div>
+          <div className="relative flex min-h-[380px] items-center justify-center lg:min-h-[600px]"><div className="absolute inset-[20%] rounded-full bg-[#f6c65f]/30 blur-[90px]"/><img src="/odisseia-hero.png" alt="Corujinha aventureira, mascote oficial do Odisseia Bíblica" className="parallax-foreground relative z-10 w-full max-w-[580px] object-contain drop-shadow-[0_25px_35px_rgba(0,0,0,.55)]"/></div>
+        </div>
+      </section>
+      <section id="como-funciona" className="relative isolate flex min-h-[570px] items-center overflow-hidden py-24 scroll-mt-16">
+        <div className="parallax-back absolute inset-0 -z-20 bg-cover bg-center" style={{backgroundImage:"url('/scenes/historias.svg')"}}/>
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#071426]/90 via-[#071426]/55 to-[#071426]/10"/>
+        <div className="mx-auto w-full max-w-7xl px-5 lg:px-8"><div className="max-w-xl rounded-2xl border border-[#f6c65f]/25 bg-[#071426]/65 p-8 backdrop-blur-md md:p-12"><p className="text-xs uppercase tracking-[.3em] text-[#f6c65f]">Mais que um jogo</p><h2 className="mt-4 font-serif text-4xl md:text-6xl">Uma jornada <span className="text-[#f6c65f]">de fé</span></h2><p className="mt-5 text-lg leading-8 text-slate-200">Cada desafio superado leva você mais perto de conhecer a Palavra de Deus e viver grandes histórias.</p></div></div>
+      </section>
+      <section id="funcionalidades" className="relative isolate overflow-hidden bg-[#061426] py-24 scroll-mt-16">
+        <div className="parallax-back absolute inset-0 -z-20 bg-cover bg-center opacity-55" style={{backgroundImage:"url('/scenes/jornada.svg')"}}/><div className="absolute inset-0 -z-10 bg-gradient-to-l from-[#061426]/90 via-[#061426]/65 to-[#061426]/40"/>
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 md:grid-cols-2 lg:px-8">
+          <div className="relative mx-auto w-full max-w-[340px] rotate-[-5deg] rounded-[2.8rem] border-[9px] border-[#020916] bg-[#071b35] p-4 shadow-[0_35px_90px_#0009] transition-transform hover:rotate-0"><div className="mb-5 flex items-center gap-2 text-xs text-[#f6c65f]"><img src="/odisseia-hero.png" className="h-10 w-10 object-contain" alt=""/> Odisseia Bíblica</div><img src="/scenes/historias.svg" className="aspect-[4/3] w-full rounded-xl object-cover" alt="Cenário de exploração bíblica"/><p className="mt-4 font-serif text-xl">Sua jornada começa aqui</p><div className="mt-4 grid grid-cols-2 gap-2">{["Antigo Testamento","Novo Testamento","Personagens","Desafios diários"].map(x=><div key={x} className="rounded-lg border border-[#f6c65f]/20 bg-[#183656] px-2 py-4 text-center text-xs text-[#f4d38c]">{x}</div>)}</div><div className="mt-5 rounded-full bg-[#f6c65f] p-3 text-center text-sm font-bold text-[#061426]">Continuar jornada →</div></div>
+          <div><p className="text-xs uppercase tracking-[.3em] text-[#f6c65f]">Aprender a Bíblia</p><h2 className="mt-4 font-serif text-5xl">Nunca foi tão <span className="text-[#f6c65f]">divertido</span></h2><p className="mt-6 text-lg leading-8 text-slate-200">Jogue, responda, explore e evolua em uma experiência feita para todas as idades.</p><div className="mt-8 grid grid-cols-2 gap-4">{["Desafios interativos","Histórias reais","Evolução em níveis","Conquistas especiais"].map(x=><div key={x} className="rounded-xl border border-[#f6c65f]/25 bg-[#061426]/65 p-5 text-sm text-[#f4d38c]">✦ {x}</div>)}</div></div>
+        </div>
+      </section>
+      <section className="relative isolate flex min-h-[630px] items-center overflow-hidden py-24">
+        <div className="parallax-back absolute inset-0 -z-20 bg-cover bg-center" style={{backgroundImage:"url('/scenes/historias.svg')"}}/><div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#061426]/95 via-[#061426]/75 to-[#061426]/30"/>
+        <div className="mx-auto grid w-full max-w-7xl items-center gap-8 px-5 md:grid-cols-[1fr_.8fr] lg:px-8"><div><h2 className="max-w-lg font-serif text-5xl">Explore a Bíblia com um novo <span className="text-[#f6c65f]">olhar</span></h2><p className="mt-6 max-w-lg text-lg text-slate-200">Viaje por acontecimentos, descubra personagens e reviva ensinamentos que atravessam gerações.</p><img src="/odisseia-hero.png" className="parallax-foreground mt-5 w-60 object-contain md:w-80" alt="Mascote convidando para explorar a Bíblia"/></div><div className="space-y-4">{["Antigo Testamento","Novo Testamento","Personagens bíblicos"].map((x,i)=><a href="#espera" key={x} className="flex items-center justify-between rounded-xl border border-[#f6c65f]/30 bg-[#061426]/80 p-6 text-lg font-semibold backdrop-blur transition hover:translate-x-1 hover:border-[#f6c65f]"><span>{x}</span><ArrowRight className="text-[#f6c65f]"/></a>)}</div></div>
+      </section>
     </div>
-
     <section aria-label="Experimente um desafio" className="relative border-y border-[#f4c86a]/20 bg-[#081b31] px-5 py-16">
       <div className="mx-auto grid max-w-5xl gap-10 md:grid-cols-2 md:items-center">
         <div><p className="text-xs font-bold uppercase tracking-[.25em] text-[#f4c86a]">Uma experiência interativa</p><h2 className="mt-3 font-serif text-4xl">Pequenas perguntas.<br/><span className="text-[#f4c86a]">Grandes aprendizados.</span></h2><p className="mt-5 leading-7 text-slate-300">Teste seus conhecimentos e descubra como aprender a Bíblia pode ser divertido.</p></div>
