@@ -107,7 +107,7 @@ function OdisseiaLanding() {
       {/* 2 Jornada */}
       <Scene id="como-funciona" src={jornada} imgClass="object-left" className="flex min-h-[420px] items-center py-12">
         <div className="w-full">
-          <div className="ml-[22%] max-w-[24%] min-w-[260px] text-ink">
+          <div className="ml-[21%] max-w-[23%] pr-4 min-w-[260px] text-ink">
             <h2 className="font-display text-2xl font-semibold leading-tight md:text-4xl">MAIS QUE UM JOGO, UMA JORNADA DE FÉ</h2>
             <p className="mt-4 font-medium leading-7">Cada desafio superado te leva mais perto de conhecer a palavra de Deus e viver grandes histórias que marcaram o mundo.</p>
           </div>
