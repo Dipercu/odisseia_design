@@ -55,7 +55,7 @@ function OdisseiaLanding() {
   const [email, setEmail] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
   const [error, setError] = useState("");
-  const endpoint = import.meta.env.VITE_WAITLIST_ENDPOINT as string | undefined;
+  const endpoint = import.meta.env["VITE_WAITLIST_ENDPOINT"] as string | undefined;
 
   async function subscribe(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
