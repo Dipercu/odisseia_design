@@ -91,10 +91,10 @@ function OdisseiaLanding() {
         <div className="mx-auto w-full max-w-7xl px-5 lg:px-8">
           <div className="max-w-xl">
             <p className="text-xs font-semibold uppercase tracking-[.25em] text-gold">Uma nova jornada está começando</p>
-            <h1 className="mt-4 font-display text-4xl leading-[1.08] md:text-6xl">DESCUBRA HISTÓRIAS REAIS <span className="text-gold">QUE TRANSFORMAM SUA VIDA</span></h1>
+            <h1 className="mt-4 font-display text-4xl leading-[1.08] md:text-[3.4rem]">DESCUBRA HISTÓRIAS REAIS <span className="text-gold">QUE TRANSFORMAM SUA VIDA</span></h1>
             <p className="mt-5 max-w-md text-base leading-7 text-foreground/90">Odisseia Bíblica é um jogo de perguntas e respostas que torna o aprendizado da Bíblia uma experiência incrível, envolvente e divertida.</p>
             <a href="#espera" className="btn-gold mt-8 py-3 pr-7 pl-3 text-sm"><span className="grid h-8 w-8 place-items-center rounded-full bg-navy-deep text-gold"><ArrowRight size={18} /></span>Entrar na lista de espera</a>
-            <div className="mt-10 flex flex-wrap gap-6">
+            <div className="mt-10 flex flex-wrap gap-4">
               {[[Gamepad2, "Jogue", "e responda desafios"], [BookOpen, "Explore", "histórias bíblicas"], [BarChart3, "Evolua", "em níveis e conquistas"]].map(([I, t, d]) => {
                 const Icon = I as typeof Gamepad2;
                 return <div key={t as string} className="flex items-center gap-3"><span className="grid h-12 w-12 place-items-center rounded-full border border-gold/60 text-gold"><Icon size={22} /></span><span className="text-xs leading-tight"><b className="block uppercase">{t as string}</b><span className="text-foreground/75">{d as string}</span></span></div>;
@@ -106,9 +106,9 @@ function OdisseiaLanding() {
 
       {/* 2 Jornada */}
       <Scene id="como-funciona" src={jornada} imgClass="object-left" className="flex min-h-[420px] items-center py-12">
-        <div className="mx-auto w-full max-w-7xl px-5 lg:px-8">
-          <div className="max-w-sm pl-[8%] text-ink md:max-w-md md:pl-[12%]">
-            <h2 className="font-display text-3xl font-semibold leading-tight md:text-5xl">MAIS QUE UM JOGO, UMA JORNADA DE FÉ</h2>
+        <div className="w-full">
+          <div className="ml-[22%] max-w-[24%] min-w-[260px] text-ink">
+            <h2 className="font-display text-2xl font-semibold leading-tight md:text-4xl">MAIS QUE UM JOGO, UMA JORNADA DE FÉ</h2>
             <p className="mt-4 font-medium leading-7">Cada desafio superado te leva mais perto de conhecer a palavra de Deus e viver grandes histórias que marcaram o mundo.</p>
           </div>
         </div>
@@ -195,7 +195,7 @@ function OdisseiaLanding() {
       </Scene>
 
       {/* 7 Leve / waitlist */}
-      <Scene id="espera" src={leve} imgClass="object-[30%_center]" className="py-14 md:py-20">
+      <Scene id="espera" src={leve} imgClass="object-[30%_center]" className="py-10">
         <div className="mx-auto grid w-full max-w-7xl px-5 md:grid-cols-[1fr_1.1fr] lg:px-8">
           <div className="hidden md:block" />
           <div className="max-w-md rounded-2xl bg-navy-deep/65 p-6 backdrop-blur-sm">
