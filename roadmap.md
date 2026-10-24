@@ -3,3 +3,4 @@
 - [x] Replace the three low-resolution category thumbnails with refined images.
 - [x] Remove unnecessary image dimming and verify the updated page.
 - [x] Regenerate all ten images at 2K (1920px wide) and switch the page to them.
+- [ ] Restore the mascot's exact original characteristics in every scene; obtain the original mascot artwork if only the low-resolution sketch is available.
