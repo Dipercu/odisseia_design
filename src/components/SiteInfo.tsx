@@ -84,7 +84,7 @@ const audience = [
 
 const plans = [
   { name: "Grátis", tag: "", price: "R$ 0", note: "Para sempre, sem cartão", items: ["Maná do Dia todos os dias", "Trilha Fundamentos com 900 perguntas", "Bíblia completa e voz que lê para você", "Quem disse, Ordem dos fatos e Modo família"] },
-  { name: "Premium", tag: "7 dias grátis", price: "R$ 9,90 por mês", note: "ou R$ 79,90 por ano (sai por R$ 6,66 ao mês)", items: ["Tudo do plano grátis", "Trilha Aprofundado: 2.400 perguntas", "Trilha Mestre: 3.750 perguntas", "Liga da semana e Modo desafio com cronômetro", "Sala ao vivo para a igreja", "Vidas sem limite e ajudas extras", "Progresso salvo na nuvem, em vários aparelhos"] },
+  { name: "Premium", tag: "7 dias grátis", price: "R$ 9,90 por mês", note: "ou R$ 78,90 por ano (sai por R$ 6,57 ao mês)", items: ["Tudo do plano grátis", "Trilha Aprofundado: 2.400 perguntas", "Trilha Mestre: 3.750 perguntas", "Liga da semana e Modo desafio com cronômetro", "Sala ao vivo para a igreja", "Vidas sem limite e ajudas extras", "Progresso salvo na nuvem, em vários aparelhos"] },
 ];
 
 const faq = [
