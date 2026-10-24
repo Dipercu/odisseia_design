@@ -218,9 +218,9 @@ body { font-family: var(--font-sans); }
 @media(max-width:767px) { .scene-section { min-height:0; padding-block:3rem; } .scene-section:first-of-type { min-height:0; padding-block:7rem 2.5rem; } .scene-image { object-position:65% center; } .fade-l { background:linear-gradient(90deg,var(--navy-deep),color-mix(in oklab,var(--navy-deep) 70%,transparent) 50%,var(--navy-deep)); } .scene-section::before { background:linear-gradient(90deg,rgba(5,14,32,.86),rgba(5,14,32,.55) 50%,rgba(5,14,32,.86)),linear-gradient(0deg,rgba(5,14,32,.88),transparent 60%); } .scene-section:first-of-type .scene-image { object-position:60% center; } .scene-section:first-of-type .fade-l { background:linear-gradient(0deg,var(--navy-deep) 0%,color-mix(in oklab,var(--navy-deep) 35%,transparent) 26%,transparent 52%); } .scene-section:first-of-type::before { background:linear-gradient(180deg,rgba(5,14,32,.9) 0%,rgba(5,14,32,.76) 20%,rgba(5,14,32,.5) 40%,rgba(5,14,32,.22) 58%,rgba(5,14,32,.16) 72%,rgba(5,14,32,.38) 90%,rgba(5,14,32,.6) 100%); } }
 /* One-time cinematic reveals, with content visible before hydration. */
 html { scroll-behavior:smooth; }
-.scene-section[data-motion] > div:not(.mascot-stage):not(.fade-l):not(.fade-r):not(.fade-b) { transition:opacity .85s ease,translate .85s cubic-bezier(.2,.65,.25,1); }
-.scene-section[data-motion="ready"] > div:not(.mascot-stage):not(.fade-l):not(.fade-r):not(.fade-b) { opacity:0; translate:0 28px; }
-.scene-section[data-motion="visible"] > div:not(.mascot-stage):not(.fade-l):not(.fade-r):not(.fade-b) { opacity:1; translate:0 0; }
+.scene-section[data-motion] > div:not(.mascot-stage):not(.fade-l):not(.fade-r):not(.fade-b):not(.mystery-mist):not(.mystery-motes) { transition:opacity .85s ease,translate .85s cubic-bezier(.2,.65,.25,1); }
+.scene-section[data-motion="ready"] > div:not(.mascot-stage):not(.fade-l):not(.fade-r):not(.fade-b):not(.mystery-mist):not(.mystery-motes) { opacity:0; translate:0 28px; }
+.scene-section[data-motion="visible"] > div:not(.mascot-stage):not(.fade-l):not(.fade-r):not(.fade-b):not(.mystery-mist):not(.mystery-motes) { opacity:1; translate:0 0; }
 .scene-section[data-motion="visible"] .scene-copy > * { animation:content-reveal .75s both; }
 .scene-section[data-motion="visible"] .scene-copy > :nth-child(2) { animation-delay:.1s; }
 .scene-section[data-motion="visible"] .scene-copy > :nth-child(3) { animation-delay:.2s; }
@@ -247,6 +247,23 @@ html { scroll-behavior:smooth; }
 .scene-section [role="status"] { animation:content-reveal .35s both; }
 @keyframes content-reveal { from { opacity:0; translate:0 16px; } to { opacity:1; translate:0 0; } }
 .explore-panel { animation:content-reveal .45s both; }
+/* Mystery atmosphere: soft golden mist + drifting motes, revealed as scenes enter view. */
+.mystery-mist { position:absolute; inset:-12%; z-index:-6; pointer-events:none; opacity:0; transition:opacity 2s ease; }
+.mystery-mist::before,.mystery-mist::after { content:""; position:absolute; inset:0; will-change:transform; }
+.mystery-mist::before { background:radial-gradient(42% 32% at 24% 28%, color-mix(in oklab, var(--gold) 14%, transparent), transparent 70%), radial-gradient(34% 28% at 78% 66%, color-mix(in oklab, var(--gold) 10%, transparent), transparent 72%); animation:mist-drift 28s ease-in-out infinite alternate; }
+.mystery-mist::after { background:radial-gradient(26% 22% at 62% 20%, color-mix(in oklab, var(--gold-soft) 9%, transparent), transparent 74%); animation:mist-drift 40s ease-in-out infinite alternate-reverse; }
+.mystery-motes { position:absolute; inset:0; z-index:-5; pointer-events:none; opacity:0; transition:opacity 2.2s ease; }
+.mystery-motes::before,.mystery-motes::after { content:""; position:absolute; top:105%; left:0; width:3px; height:3px; border-radius:9999px; background:var(--gold-soft); box-shadow:14vw 6vh 0 -.5px, 32vw 40vh 0 .5px, 54vw 10vh 0 -.5px, 71vw 52vh 0 .5px, 87vw 28vh 0 -.5px, 9vw 66vh 0 .5px, 44vw 76vh 0 -.5px, 65vw 86vh 0 .5px, 91vw 72vh 0 -.5px; opacity:.5; animation:motes-rise 26s linear infinite; }
+.mystery-motes::after { animation-duration:38s; animation-delay:-16s; opacity:.32; }
+@keyframes mist-drift { from { transform:translate3d(-2.5%,-1.5%,0) scale(1); } to { transform:translate3d(2.5%,2%,0) scale(1.07); } }
+@keyframes motes-rise { to { transform:translateY(-135vh); } }
+.scene-section[data-motion="visible"] .mystery-mist,.mystery-mist[data-shown="true"] { opacity:1; }
+.scene-section[data-motion="visible"] .mystery-motes { opacity:1; }
+/* Lantern: faint golden glow that breathes while the page is scrolling. */
+.mystery-lantern { position:fixed; inset:0; z-index:55; pointer-events:none; opacity:0; background:radial-gradient(120% 55% at 50% 0%, color-mix(in oklab, var(--gold) 11%, transparent), transparent 60%), radial-gradient(120% 55% at 50% 100%, color-mix(in oklab, var(--gold) 9%, transparent), transparent 60%); }
+/* Touch trail: a light ripple where the finger lands. */
+.mystery-touch { position:fixed; z-index:60; width:14px; height:14px; margin:-7px 0 0 -7px; border-radius:9999px; pointer-events:none; background:radial-gradient(circle, color-mix(in oklab, var(--gold-soft) 60%, transparent), transparent 70%); animation:touch-mystery 1.1s ease-out forwards; }
+@keyframes touch-mystery { from { opacity:.55; transform:scale(.6); } 60% { opacity:.2; } to { opacity:0; transform:scale(3.2); } }
 
 @keyframes mascot-sway { 0%,100% { transform:translateY(0) rotate(-.45deg); } 50% { transform:translateY(-6px) rotate(.65deg); } }
 @keyframes shadow-breathe { 0%,100% { opacity:1; } 50% { opacity:.72; } }
@@ -260,4 +277,5 @@ html { scroll-behavior:smooth; }
   .scene-section *,.scene-section *::before,.scene-section *::after { animation:none !important; transition:none !important; }
   .scene-section[data-motion] > div { opacity:1 !important; translate:none !important; }
   .icon-float { animation:none !important; }
+  .mystery-mist,.mystery-motes,.mystery-lantern,.mystery-touch { display:none !important; }
 }
