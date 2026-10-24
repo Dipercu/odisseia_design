@@ -95,10 +95,10 @@ function OdisseiaLanding() {
           <div className="scene-copy max-w-xl rounded-2xl bg-navy-deep/65 p-6 backdrop-blur-sm md:bg-transparent md:p-0">
             <p className="text-xs font-semibold uppercase tracking-[.25em] text-gold">Uma nova jornada está começando</p>
             <h1 className="mt-4 font-display text-4xl leading-[1.08] md:text-[3.4rem]">DESCUBRA HISTÓRIAS REAIS <span className="text-gold">QUE TRANSFORMAM SUA VIDA</span></h1>
-            <p className="mt-5 max-w-md text-base leading-7 text-foreground/90">Odisseia Bíblica é um app de perguntas e respostas que torna o aprendizado da Bíblia uma experiência incrível, envolvente e divertida.</p>
+            <p className="mt-5 max-w-md text-base leading-7 text-foreground/90">Odisseia Bíblica é um App de perguntas e respostas que torna o aprendizado da Bíblia uma experiência incrível, envolvente e divertida.</p>
             <a href="#espera" className="btn-gold mt-8 py-3 pr-7 pl-3 text-sm"><span className="grid h-8 w-8 place-items-center rounded-full bg-navy-deep text-gold"><ArrowRight size={18} /></span>Entrar na lista de espera</a>
             <div className="mt-10 flex flex-wrap gap-4">
-              {[[Gamepad2, "Jogue", "e responda desafios"], [BookOpen, "Explore", "histórias bíblicas"], [BarChart3, "Evolua", "em níveis e conquistas"]].map(([I, t, d]) => {
+              {[[Gamepad2, "Divirta-se", "e responda desafios"], [BookOpen, "Explore", "histórias bíblicas"], [BarChart3, "Evolua", "em níveis e conquistas"]].map(([I, t, d]) => {
                 const Icon = I as typeof Gamepad2;
                 return <div key={t as string} className="flex items-center gap-3"><span className="grid h-12 w-12 place-items-center rounded-full border border-gold/60 text-gold"><Icon size={22} /></span><span className="text-xs leading-tight"><b className="block uppercase">{t as string}</b><span className="text-foreground/75">{d as string}</span></span></div>;
               })}
@@ -124,7 +124,7 @@ function OdisseiaLanding() {
           <div className="scene-copy rounded-2xl border border-gold/15 bg-navy-deep/80 p-7 backdrop-blur-md md:p-10">
             <p className="text-sm uppercase tracking-[.25em] text-gold">Aprender a Bíblia</p>
             <h2 className="mt-3 font-display text-4xl leading-tight md:text-5xl">NUNCA FOI TÃO <span className="block text-5xl text-gold md:text-6xl">DIVERTIDO</span></h2>
-            <p className="mt-4 max-w-md text-foreground/90">Jogue, responda, explore e evolua em uma experiência feita para todas as idades.</p>
+            <p className="mt-4 max-w-md text-foreground/90">Divirta-se, responda, explore e evolua em uma experiência feita para todas as idades.</p>
             <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-4">
               {[[Gamepad2, "Desafios", "interativos"], [BookOpen, "Histórias", "bíblicas reais"], [BarChart3, "Evolução", "em níveis"], [Crown, "Conquistas", "especiais"]].map(([I, t, d]) => {
                 const Icon = I as typeof Gamepad2;
@@ -190,7 +190,7 @@ function OdisseiaLanding() {
             <h2 className="font-display text-4xl leading-tight md:text-5xl">PARA TODAS <span className="block text-gold">AS IDADES</span></h2>
             <p className="mt-4 text-sm leading-6 text-foreground/90">Uma jornada para crianças, jovens e adultos. Aprenda, reflita e compartilhe a Palavra em família e com amigos.</p>
             <div className="mt-8 grid grid-cols-3 gap-4">
-              {[[Users, "Jogue em família"], [UserRound, "Faça parte de uma comunidade"], [Heart, "Fortaleça sua fé"]].map(([I, t]) => {
+              {[[Users, "Divirta-se em família"], [UserRound, "Faça parte de uma comunidade"], [Heart, "Fortaleça sua fé"]].map(([I, t]) => {
                 const Icon = I as typeof Users;
                 return <div key={t as string} className="text-center"><span className="mx-auto grid h-14 w-14 place-items-center rounded-full border border-gold/70 text-gold"><Icon size={24} /></span><span className="mt-2 block text-[11px] font-semibold uppercase leading-tight">{t as string}</span></div>;
               })}
@@ -205,7 +205,7 @@ function OdisseiaLanding() {
           <div className="hidden md:block" />
           <div className="scene-copy max-w-md rounded-2xl border border-gold/20 bg-navy-deep/85 p-7 backdrop-blur-md">
             <h2 className="font-display text-4xl leading-tight">LEVE A BÍBLIA <span className="block text-gold">COM VOCÊ</span></h2>
-            <p className="mt-3 text-sm leading-6 text-foreground/90">Onde estiver, sempre há uma nova história para descobrir. Odisseia Bíblica no seu celular, pronto para jogar.</p>
+            <p className="mt-3 text-sm leading-6 text-foreground/90">Onde estiver, sempre há uma nova história para descobrir. Odisseia Bíblica no seu celular, pronto para se divertir.</p>
             {state === "done" ? <p role="status" className="mt-6 rounded-xl border border-success/50 bg-success/15 p-4">Cadastro recebido! Acompanhe seu e-mail.</p> : (
               <form onSubmit={subscribe} className="mt-5 space-y-3">
                 <label htmlFor="nome" className="sr-only">Nome</label>
@@ -225,7 +225,7 @@ function OdisseiaLanding() {
 
       <footer className="bg-navy-deep px-5 py-8">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 md:flex-row">
-          <div><Logo big /><p className="mt-1 pl-14 text-[10px] tracking-[.2em] text-foreground/70">JOGUE • APRENDA • VIVA A PALAVRA</p></div>
+          <div><Logo big /><p className="mt-1 pl-14 text-[10px] tracking-[.2em] text-foreground/70">DIVIRTA-SE • APRENDA • VIVA A PALAVRA</p></div>
           <nav className="flex gap-6 text-xs text-foreground/75">{nav.filter(n => n[0] !== "Depoimentos").map(([l, h]) => <a key={h} href={h} className="hover:text-gold">{l}</a>)}</nav>
           <div className="flex gap-4 text-foreground/80"><a href="#" aria-label="YouTube"><Youtube size={20} /></a><a href="#" aria-label="Instagram"><Instagram size={20} /></a><a href="#" aria-label="Facebook"><Facebook size={20} /></a></div>
         </div>
