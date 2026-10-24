@@ -11,3 +11,4 @@
 
 - Render the supplied mascot artwork as an unchanged transparent overlay on cleaned scene backgrounds; this preserves identity without generative reinterpretation.
 - Integrate the hero mascot using a dedicated stage with derived silhouette/contact shadows and CSS light spill; keep the original asset untouched so environmental effects never redraw the character.
+- Use one-time IntersectionObserver section reveals and CSS animations for interactive effects and mascot movement; keep pre-hydration content visible and respect reduced-motion preferences.

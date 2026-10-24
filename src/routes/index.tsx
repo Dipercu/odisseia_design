@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, BookOpen, CheckCircle2, Crown, Gamepad2, Heart, Menu, Users, UserRound, X, BarChart3, Youtube, Instagram, Facebook, Compass } from "lucide-react";
 import hero from "@/assets/s1-hero-background.png";
 import jornada from "@/assets/s2-jornada-background.png";
@@ -42,8 +42,21 @@ function Logo({ big = false }: { big?: boolean }) {
 }
 
 function Scene({ src, children, className = "", id, imgClass = "", mascot = false }: { src: string; children: React.ReactNode; className?: string; id?: string; imgClass?: string; mascot?: boolean }) {
+  const sceneRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const scene = sceneRef.current;
+    if (!scene || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    scene.dataset['motion'] = 'ready';
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry?.isIntersecting) return;
+      scene.dataset['motion'] = 'visible';
+      observer.unobserve(scene);
+    }, { threshold: 0.08 });
+    observer.observe(scene);
+    return () => observer.disconnect();
+  }, []);
   return (
-    <section id={id} className={`scene-section relative isolate scroll-mt-16 overflow-hidden ${className}`}>
+    <section ref={sceneRef} id={id} className={`scene-section relative isolate scroll-mt-16 overflow-hidden ${className}`}>
       <img src={src} alt="" aria-hidden className={`scene-image absolute inset-0 -z-20 h-full w-full object-cover ${imgClass}`} />
       {mascot && (
         <div className="mascot-stage mascot-hero">
