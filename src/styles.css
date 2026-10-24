@@ -152,6 +152,10 @@
   --parchment: oklch(0.93 0.04 85);
   --ink: oklch(0.25 0.04 60);
   --success: oklch(0.72 0.17 145);
+  --mascot-shadow: oklch(0.12 0.025 65 / 70%);
+  --mascot-contact: oklch(0.1 0.02 65 / 90%);
+  --mascot-bounce: oklch(0.8 0.12 75 / 26%);
+  --mascot-rim: oklch(0.9 0.11 85 / 38%);
 }
 @theme inline {
   --color-navy: var(--navy);
@@ -182,11 +186,15 @@ body { font-family: var(--font-sans); }
 .scene-section { min-height: 490px; display:flex; align-items:center; padding-block:clamp(4rem,8vw,7rem); }
 .scene-section:first-of-type { min-height:740px; }
 .scene-image { transform:none !important; object-position:center; }
-.scene-mascot { position:absolute; object-fit:contain; height:auto; pointer-events:none; z-index:-8; }
+.mascot-stage { position:absolute; aspect-ratio:1351 / 1164; pointer-events:none; z-index:-8; isolation:isolate; }
+.scene-mascot { position:relative; display:block; width:100%; height:auto; object-fit:contain; filter:drop-shadow(3px -2px 3px var(--mascot-rim)) drop-shadow(-8px 10px 10px var(--mascot-shadow)); }
+.mascot-stage::before { content:""; position:absolute; width:78%; height:12%; left:5%; bottom:-3%; border-radius:50%; background:radial-gradient(ellipse,var(--mascot-shadow),transparent 70%); transform:rotate(-9deg); filter:blur(8px); }
+.mascot-stage::after { content:""; position:absolute; width:49%; height:4%; left:27%; bottom:0; z-index:-1; border-radius:50%; background:radial-gradient(ellipse,var(--mascot-contact),transparent 72%); box-shadow:0 -8px 22px var(--mascot-bounce); filter:blur(3px); }
+.mascot-cast-shadow { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; transform-origin:50% 98%; transform:translateX(-8%) skewX(48deg) scaleY(-.19); filter:brightness(0) blur(9px); opacity:.45; }
 .mascot-hero { width:42%; max-width:620px; right:4%; bottom:6%; }
 @media(max-width:767px) {
-  .scene-section:has(.scene-mascot) { flex-direction:column; gap:2rem; }
-  .scene-mascot { position:relative; width:min(72%,320px); max-width:320px; inset:auto; flex-shrink:0; z-index:0; }
+  .scene-section:has(.mascot-stage) { flex-direction:column; gap:2rem; }
+  .mascot-stage { position:relative; width:min(72%,320px); max-width:320px; inset:auto; flex-shrink:0; z-index:0; order:2; }
 }
 .scene-section::before { content:""; position:absolute; inset:0; z-index:-9; pointer-events:none; background:linear-gradient(90deg,rgba(5,14,32,.82),rgba(5,14,32,.36) 60%,rgba(5,14,32,.55)),linear-gradient(0deg,rgba(5,14,32,.85),transparent 24%,transparent 75%,rgba(5,14,32,.6)); }
 .scene-copy { position:relative; isolation:isolate; }

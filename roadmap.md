@@ -5,3 +5,4 @@
 - [x] Regenerate all ten images at 2K (1920px wide) and switch the page to them.
 - [x] Use the supplied original mascot artwork unchanged in every scene, replacing the reinterpreted mascots.
 - [x] Keep the mascot only in the hero scene; remove it from all other scenes and category cards.
+- [x] Integrate the original hero mascot with contact shadows and sunset ambient light, without redrawing it.

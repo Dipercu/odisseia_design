@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Render the supplied mascot artwork as an unchanged transparent overlay on cleaned scene backgrounds; this preserves identity without generative reinterpretation.
+- Integrate the hero mascot using a dedicated stage with derived silhouette/contact shadows and CSS light spill; keep the original asset untouched so environmental effects never redraw the character.
