@@ -9,3 +9,4 @@
 - [x] Add scroll reveals, interactive element effects and gentle mascot movement; verify normal and reduced-motion behavior.
 - [x] Mirror the hero mascot horizontally while retaining its movement and matching shadows.
 - [x] Center the waitlist form card in scene 7 and widen it; verify layout at desktop and mobile widths.
+- [x] Remove the header navigation menu (desktop links and mobile hamburger), keeping logo and waitlist button.

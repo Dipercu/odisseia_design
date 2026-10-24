@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, BookOpen, CheckCircle2, Crown, Gamepad2, Heart, Menu, Users, UserRound, X, BarChart3, Youtube, Instagram, Facebook, Compass } from "lucide-react";
+import { ArrowRight, BookOpen, CheckCircle2, Crown, Gamepad2, Heart, Users, UserRound, BarChart3, Youtube, Instagram, Facebook, Compass } from "lucide-react";
 import hero from "@/assets/s1-hero-background.png";
 import jornada from "@/assets/s2-jornada-background.png";
 import divertido from "@/assets/s3-divertido-background.png";
@@ -70,7 +70,6 @@ function Scene({ src, children, className = "", id, imgClass = "", mascot = fals
 }
 
 function OdisseiaLanding() {
-  const [menu, setMenu] = useState(false);
   const [answer, setAnswer] = useState<number | null>(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -97,13 +96,8 @@ function OdisseiaLanding() {
       <header className="absolute inset-x-0 top-0 z-50">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-5 px-5 lg:px-8">
           <Logo />
-          <nav aria-label="Navegação principal" className="hidden items-center gap-7 text-sm font-medium lg:flex">
-            {nav.map(([l, h]) => <a key={h} href={h} className="transition hover:text-gold">{l}</a>)}
-          </nav>
-          <a href="#espera" className="btn-gold hidden px-5 py-2.5 text-xs md:inline-flex">Entrar na lista de espera <ArrowRight size={16} /></a>
-          <button type="button" aria-label={menu ? "Fechar menu" : "Abrir menu"} aria-expanded={menu} onClick={() => setMenu(!menu)} className="lg:hidden">{menu ? <X /> : <Menu />}</button>
+          <a href="#espera" className="btn-gold px-4 py-2.5 text-xs sm:px-5"><span className="sm:hidden">Lista de espera</span><span className="hidden sm:inline">Entrar na lista de espera</span> <ArrowRight size={16} /></a>
         </div>
-        {menu && <nav className="flex flex-col gap-4 bg-navy-deep/95 px-6 py-5 lg:hidden">{[...nav, ["Lista de espera", "#espera"]].map(([l, h]) => <a key={h} href={h} onClick={() => setMenu(false)}>{l}</a>)}</nav>}
       </header>
 
       {/* 1 Hero */}
