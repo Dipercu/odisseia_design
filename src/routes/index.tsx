@@ -45,7 +45,12 @@ function Scene({ src, children, className = "", id, imgClass = "", mascot = fals
   return (
     <section id={id} className={`scene-section relative isolate scroll-mt-16 overflow-hidden ${className}`}>
       <img src={src} alt="" aria-hidden className={`scene-image absolute inset-0 -z-20 h-full w-full object-cover ${imgClass}`} />
-      {mascot && <img src={mascotSrc.url} alt="Mascote original de Odisseia Bíblica" width={1351} height={1164} className="scene-mascot mascot-hero" />}
+      {mascot && (
+        <div className="mascot-stage mascot-hero">
+          <img src={mascotSrc.url} alt="" aria-hidden width={1351} height={1164} className="mascot-cast-shadow" />
+          <img src={mascotSrc.url} alt="Mascote original de Odisseia Bíblica" width={1351} height={1164} className="scene-mascot" />
+        </div>
+      )}
       {children}
     </section>
   );
