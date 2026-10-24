@@ -1,16 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowRight, BookOpen, CheckCircle2, Crown, Gamepad2, Heart, Menu, Users, UserRound, X, BarChart3, Youtube, Instagram, Facebook, Compass } from "lucide-react";
-import hero from "@/assets/s1-hero-hd.jpg";
-import jornada from "@/assets/s2-jornada-hd.jpg";
-import divertido from "@/assets/s3-divertido-hd.jpg";
-import explore from "@/assets/s4-explore-hd.jpg";
-import quiz from "@/assets/s5-quiz-hd.jpg";
-import idades from "@/assets/s6-idades-hd.jpg";
-import leve from "@/assets/s7-leve-hd.jpg";
-import thAt from "@/assets/th-at-hd.jpg";
-import thNt from "@/assets/th-nt-hd.jpg";
-import thPb from "@/assets/th-pb-hd.jpg";
+import hero from "@/assets/s1-hero-2k.jpg";
+import jornada from "@/assets/s2-jornada-2k.jpg";
+import divertido from "@/assets/s3-divertido-2k.jpg";
+import explore from "@/assets/s4-explore-2k.jpg";
+import quiz from "@/assets/s5-quiz-2k.jpg";
+import idades from "@/assets/s6-idades-2k.jpg";
+import leve from "@/assets/s7-leve-2k.jpg";
+import thAt from "@/assets/th-at-2k.jpg";
+import thNt from "@/assets/th-nt-2k.jpg";
+import thPb from "@/assets/th-pb-2k.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
