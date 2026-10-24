@@ -391,7 +391,7 @@ function QuizCard() {
   const restart = () => { setStep(0); setPicked(null); setResults([null, null, null]); setDone(false); };
   const score = results.filter(Boolean).length;
   return (
-    <div className="w-full rounded-3xl border-2 border-gold bg-quiz-card p-6 text-parchment shadow-[0_0_40px_-10px_var(--gold)] md:max-w-md md:p-7">
+    <div className="w-full rounded-3xl border-2 border-gold bg-navy-deep/85 p-6 text-parchment shadow-[0_0_40px_-10px_var(--gold)] backdrop-blur-md md:max-w-md md:p-7">
       <div className="flex items-center justify-between">
         <p className="text-sm text-parchment/70">{done ? "Resultado" : `Pergunta ${step + 1} de ${QUIZ.length}`}</p>
         <div className="flex gap-1.5" aria-hidden>
