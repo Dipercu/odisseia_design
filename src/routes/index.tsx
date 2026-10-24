@@ -1,16 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowRight, BookOpen, CheckCircle2, Crown, Gamepad2, Heart, Menu, Users, UserRound, X, BarChart3, Youtube, Instagram, Facebook, Compass } from "lucide-react";
-import hero from "@/assets/s1-hero-2k.jpg";
-import jornada from "@/assets/s2-jornada-2k.jpg";
-import divertido from "@/assets/s3-divertido-2k.jpg";
-import explore from "@/assets/s4-explore-2k.jpg";
-import quiz from "@/assets/s5-quiz-2k.jpg";
-import idades from "@/assets/s6-idades-2k.jpg";
-import leve from "@/assets/s7-leve-2k.jpg";
-import thAt from "@/assets/th-at-2k.jpg";
-import thNt from "@/assets/th-nt-2k.jpg";
-import thPb from "@/assets/th-pb-2k.jpg";
+import hero from "@/assets/s1-hero-background.png";
+import jornada from "@/assets/s2-jornada-background.png";
+import divertido from "@/assets/s3-divertido-background.png";
+import explore from "@/assets/s4-explore-background.png";
+import quiz from "@/assets/s5-quiz-background.png";
+import idades from "@/assets/s6-idades-background.png";
+import leve from "@/assets/s7-leve-background.png";
+import mascot from "@/assets/odisseia-mascote-original.png.asset.json";
+
+const thAt = explore;
+const thNt = jornada;
+const thPb = idades;
+const mascotPlacement: Record<string, string> = {
+  [hero]: "mascot-hero", [jornada]: "mascot-jornada", [divertido]: "mascot-divertido",
+  [explore]: "mascot-explore", [quiz]: "mascot-quiz", [idades]: "mascot-idades", [leve]: "mascot-leve",
+};
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -43,6 +49,7 @@ function Scene({ src, children, className = "", id, imgClass = "" }: { src: stri
   return (
     <section id={id} className={`scene-section relative isolate scroll-mt-16 overflow-hidden ${className}`}>
       <img src={src} alt="" aria-hidden className={`scene-image absolute inset-0 -z-20 h-full w-full object-cover ${imgClass}`} />
+      <img src={mascot.url} alt="Mascote original de Odisseia Bíblica" width={1351} height={1164} className={`scene-mascot ${mascotPlacement[src] ?? ""}`} />
       {children}
     </section>
   );
@@ -144,7 +151,10 @@ function OdisseiaLanding() {
           <div className="space-y-3">
             {[[thAt, "Antigo Testamento"], [thNt, "Novo Testamento"], [thPb, "Personagens Bíblicos"]].map(([img, t]) => (
               <a key={t} href="#espera" className="group flex items-center overflow-hidden rounded-xl border border-foreground/40 bg-navy-deep/80 backdrop-blur transition hover:border-gold">
-                <img src={img} alt={t} className="h-20 w-32 object-cover" />
+                <span className="relative block h-20 w-32 shrink-0 overflow-hidden">
+                  <img src={img} alt="" className="h-full w-full object-cover" />
+                  <img src={mascot.url} alt={t} width={1351} height={1164} className="absolute inset-0 h-full w-full object-contain" />
+                </span>
                 <span className="flex-1 px-4 text-sm font-semibold uppercase">{t}</span>
                 <span className="mr-4 grid h-7 w-7 place-items-center rounded-full border border-foreground/60 transition group-hover:border-gold group-hover:text-gold"><ArrowRight size={14} /></span>
               </a>
