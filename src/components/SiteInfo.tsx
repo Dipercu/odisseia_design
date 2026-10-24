@@ -2,6 +2,12 @@ import { ArrowRight, Check } from "lucide-react";
 import bg_learn from "@/assets/info-learn.webp";
 import bg_care from "@/assets/info-care.webp";
 import bg_plans from "@/assets/info-plans.webp";
+import fun_bau from "@/assets/fun-bau.webp";
+import fun_perolas from "@/assets/fun-perolas.webp";
+import fun_escudo from "@/assets/fun-escudo.webp";
+import fun_liga from "@/assets/fun-liga.webp";
+import fun_pergaminho from "@/assets/fun-pergaminho.webp";
+import fun_pedras from "@/assets/fun-pedras.webp";
 
 function Bg({ src, children }: { src: string; children: React.ReactNode }) {
   return (
@@ -31,12 +37,12 @@ const learn = [
 ];
 
 const fun = [
-  ["Baú do dia", "Todo dia, escolha 1 de 3 baús e descubra o prêmio."],
-  ["Pérolas e níveis", "Suba do nível Semente ao Celeiro conforme aprende."],
-  ["Ajudas na hora do aperto", "Cartas que cortam alternativas, Pular e a ajuda dos Sacerdotes."],
-  ["Liga da semana", "Ranking com pessoas do mundo todo, recomeça toda segunda."],
-  ["Quem disse?", "Frases famosas da Bíblia: adivinhe quem falou."],
-  ["Ordem dos fatos", "Monte a linha do tempo: o que aconteceu primeiro?"],
+  ["Baú do dia", "Todo dia, escolha 1 de 3 baús e descubra o prêmio.", fun_bau],
+  ["Pérolas e níveis", "Suba do nível Semente ao Celeiro conforme aprende.", fun_perolas],
+  ["Ajudas na hora do aperto", "Cartas que cortam alternativas, Pular e a ajuda dos Sacerdotes.", fun_escudo],
+  ["Liga da semana", "Ranking com pessoas do mundo todo, recomeça toda segunda.", fun_liga],
+  ["Quem disse?", "Frases famosas da Bíblia: adivinhe quem falou.", fun_pergaminho],
+  ["Ordem dos fatos", "Monte a linha do tempo: o que aconteceu primeiro?", fun_pedras],
 ];
 
 const care = [
@@ -78,8 +84,9 @@ function Head({ kicker, title }: { kicker: string; title: string }) {
 function Cards({ list, cols }: { list: string[][]; cols: string }) {
   return (
     <div className={`mt-10 grid gap-5 ${cols}`}>
-      {list.map(([t, d]) => (
+      {list.map(([t, d, icon]) => (
         <div key={t} className="rounded-2xl border border-gold/20 bg-navy-deep/75 backdrop-blur-sm p-6 transition hover:border-gold/60">
+          {icon && <img src={icon} alt="" aria-hidden loading="lazy" decoding="async" width={64} height={64} className="mb-3 h-16 w-16 object-contain drop-shadow-[0_10px_18px_rgba(0,0,0,0.55)]" />}
           <h3 className="font-display text-lg text-gold">{t}</h3>
           <p className="mt-2 text-sm leading-6 text-foreground/85">{d}</p>
         </div>
