@@ -131,6 +131,8 @@ function Scene({ src, mobileSrc, children, className = "", id, imgClass = "", ma
   }, []);
   return (
     <section ref={sceneRef} id={id} className={`scene-section relative isolate scroll-mt-16 overflow-hidden ${className}`}>
+      <div className="mystery-mist" aria-hidden />
+      <div className="mystery-motes" aria-hidden />
       {mobileSrc ? (
         <>
           <img src={mobileSrc} alt="" aria-hidden className={`scene-image absolute inset-0 -z-20 h-full w-full object-cover md:hidden ${imgClass}`} />
@@ -153,12 +155,60 @@ function Scene({ src, mobileSrc, children, className = "", id, imgClass = "", ma
 function OdisseiaLanding() {
   const [answer, setAnswer] = useState<number | null>(null);
   const [openTab, setOpenTab] = useState("at");
+  const lanternRef = useRef<HTMLDivElement>(null);
+
+  // Faint golden lantern glow that breathes while the visitor scrolls.
+  useEffect(() => {
+    const lantern = lanternRef.current;
+    if (!lantern || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let raf = 0;
+    let glow = 0;
+    const tick = () => {
+      glow *= 0.9;
+      lantern.style.opacity = glow < 0.004 ? "0" : glow.toFixed(3);
+      if (glow > 0.004) raf = requestAnimationFrame(tick);
+      else { raf = 0; glow = 0; }
+    };
+    const onScroll = () => {
+      glow = Math.min(0.14, glow + 0.03);
+      if (!raf) raf = requestAnimationFrame(tick);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => { window.removeEventListener("scroll", onScroll); if (raf) cancelAnimationFrame(raf); };
+  }, []);
+
+  // Small light ripples where the finger touches the screen.
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("ontouchstart" in window)) return;
+    let last = 0;
+    let live = 0;
+    const spawn = (x: number, y: number) => {
+      const now = performance.now();
+      if (now - last < 160 || live >= 8) return;
+      last = now;
+      live++;
+      const spark = document.createElement("span");
+      spark.className = "mystery-touch";
+      spark.style.left = `${x}px`;
+      spark.style.top = `${y}px`;
+      document.body.appendChild(spark);
+      window.setTimeout(() => { spark.remove(); live--; }, 1200);
+    };
+    const onTouch = (event: TouchEvent) => {
+      const point = event.touches[0];
+      if (point) spawn(point.clientX, point.clientY);
+    };
+    window.addEventListener("touchstart", onTouch, { passive: true });
+    return () => window.removeEventListener("touchstart", onTouch);
+  }, []);
+
 
 
   const options = ["Amar a Deus", "Ser o primeiro", "Vencer inimigos", "Construir um templo"];
 
   return (
     <main className="dark min-h-screen bg-navy-deep text-foreground">
+      <div ref={lanternRef} className="mystery-lantern" aria-hidden />
       {/* Header */}
       <header className="absolute inset-x-0 top-0 z-50">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-5 px-5 lg:px-8">
