@@ -96,7 +96,7 @@ function OdisseiaLanding() {
       <header className="absolute inset-x-0 top-0 z-50">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-5 px-5 lg:px-8">
           <Logo />
-          <a href="#espera" className="btn-gold px-4 py-2.5 text-xs sm:px-5 sm:text-xs">Entrar na lista de espera <ArrowRight size={16} /></a>
+          <a href="#espera" className="btn-gold px-4 py-2.5 text-xs sm:px-5"><span className="sm:hidden">Lista de espera</span><span className="hidden sm:inline">Entrar na lista de espera</span> <ArrowRight size={16} /></a>
         </div>
       </header>
 
