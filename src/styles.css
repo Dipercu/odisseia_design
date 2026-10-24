@@ -173,6 +173,14 @@
   --color-parchment: var(--parchment);
   --color-ink: var(--ink);
   --color-success: var(--success);
+  --color-quiz-card: var(--quiz-card);
+  --color-quiz-option: var(--quiz-option);
+  --color-quiz-option-border: var(--quiz-option-border);
+  --color-quiz-coral: var(--quiz-coral);
+  --color-quiz-wrong-bg: var(--quiz-wrong-bg);
+  --color-quiz-right: var(--quiz-right);
+  --color-quiz-right-bg: var(--quiz-right-bg);
+  --color-quiz-verse: var(--quiz-verse);
   --font-display: "Cinzel", serif;
   --font-sans: "Montserrat", system-ui, sans-serif;
 }

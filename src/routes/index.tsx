@@ -319,21 +319,7 @@ function OdisseiaLanding() {
       {/* 5 Quiz */}
       <Scene id="perguntas" src={quiz} className="py-12 md:py-16">
         <div className="mx-auto grid w-full max-w-7xl items-center gap-10 px-5 md:grid-cols-[.9fr_1.1fr] lg:px-8">
-          <div className="rounded-2xl bg-parchment p-6 text-ink shadow-2xl md:max-w-sm">
-            <p className="text-[10px] font-semibold uppercase tracking-wider text-ink/70 max-md:text-center">Desafios que fazem você pensar</p>
-            <h3 className="mt-3 mb-4 text-lg font-bold max-md:text-center">Qual é o maior mandamento?</h3>
-            <div className="space-y-2">
-              {options.map((o, i) => (
-                <button type="button" key={o} onClick={() => setAnswer(i)} aria-pressed={answer === i}
-                  className={`flex w-full items-center gap-3 rounded-full border px-2 py-1.5 text-left text-sm transition ${answer === i ? (i === 0 ? "border-success bg-success/25" : "border-destructive bg-destructive/15") : "border-ink/25 bg-background/0 hover:border-ink/60"}`}>
-                  <span className={`grid h-6 w-6 place-items-center rounded-full text-xs font-bold ${answer === i && i === 0 ? "bg-success text-navy-deep" : "bg-navy-deep text-parchment"}`}>{String.fromCharCode(65 + i)}</span>
-                  <span className="flex-1">{o}</span>
-                  {answer === i && i === 0 && <CheckCircle2 size={18} className="text-success" />}
-                </button>
-              ))}
-            </div>
-            {answer !== null && <p role="status" className="mt-3 text-xs font-medium">{answer === 0 ? "Correto! Veja Mateus 22:37–38." : "Tente novamente! Dica: Mateus 22:37–38."}</p>}
-          </div>
+          <QuizCard />
           <div className="scene-copy max-md:mx-auto max-md:text-center rounded-2xl bg-navy-deep/85 p-7 backdrop-blur-md md:max-w-md">
             <h2 className="font-display text-3xl leading-tight md:text-4xl">PEQUENAS PERGUNTAS <span className="block text-gold">GRANDES APRENDIZADOS</span></h2>
             <p className="mt-4 text-sm leading-6 text-foreground/90 [text-shadow:0_2px_8px_var(--navy-deep)]">Aprenda de forma leve e envolvente com perguntas que desafiam o seu conhecimento e fortalecem a sua fé.</p>
