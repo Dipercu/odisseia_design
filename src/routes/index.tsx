@@ -234,8 +234,8 @@ function OdisseiaLanding() {
       <Scene id="espera" src={leve} imgClass="object-[30%_center]" className="py-10">
         <div className="mx-auto w-full max-w-7xl px-5 lg:px-8">
           <div className="scene-copy mx-auto w-full max-w-3xl rounded-2xl border border-gold/20 bg-navy-deep/85 p-7 backdrop-blur-md md:p-10">
-            <h2 className="font-display text-4xl leading-tight md:text-5xl">LEVE A BÍBLIA <span className="block text-gold">COM VOCÊ</span></h2>
-            <p className="mt-3 max-w-2xl text-sm leading-6 text-foreground/90 md:text-base">Onde estiver, sempre há uma nova história para descobrir. Odisseia Bíblica no seu celular, pronto para se divertir.</p>
+            <h2 className="text-center font-display text-4xl leading-tight md:text-5xl">LEVE A BÍBLIA <span className="block text-gold">COM VOCÊ</span></h2>
+            <p className="mx-auto mt-3 max-w-2xl text-center text-sm leading-6 text-foreground/90 md:text-base">Onde estiver, sempre há uma nova história para descobrir. Odisseia Bíblica no seu celular, pronto para se divertir.</p>
             <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
               <StoreBadge store="apple" href={APP_STORE_URL} />
               <StoreBadge store="google" href={PLAY_STORE_URL} />
