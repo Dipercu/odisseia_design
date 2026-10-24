@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { ArrowRight, Check } from "lucide-react";
 import bg_learn from "@/assets/info-learn.webp";
 import bg_care from "@/assets/info-care.webp";
@@ -9,18 +10,40 @@ import fun_liga from "@/assets/fun-liga.webp";
 import fun_pergaminho from "@/assets/fun-pergaminho.webp";
 import fun_pedras from "@/assets/fun-pedras.webp";
 
+function Mystery() {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry?.isIntersecting) return;
+      el.dataset["shown"] = "true";
+      observer.disconnect();
+    }, { threshold: 0.06 });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+  return <div ref={ref} className="mystery-mist" aria-hidden />;
+}
+
 function Bg({ src, children }: { src: string; children: React.ReactNode }) {
   return (
     <section className="relative isolate overflow-hidden py-14 md:py-20">
       <img src={src} loading="lazy" decoding="async" width={1920} height={1088} alt="" aria-hidden className="absolute inset-0 -z-20 h-full w-full object-cover" />
       <div className="absolute inset-0 -z-10 bg-navy-deep/60" aria-hidden />
+      <Mystery />
       {children}
     </section>
   );
 }
 
 function Plain({ children }: { children: React.ReactNode }) {
-  return <section className="py-14 md:py-20">{children}</section>;
+  return (
+    <section className="relative isolate overflow-hidden py-14 md:py-20">
+      <Mystery />
+      {children}
+    </section>
+  );
 }
 
 const stats = [
