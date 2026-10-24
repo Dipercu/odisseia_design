@@ -224,6 +224,7 @@ html { scroll-behavior:smooth; }
 .scene-section[data-motion="visible"] .scene-copy > :nth-child(3) { animation-delay:.2s; }
 .scene-section[data-motion="visible"] .scene-copy > :nth-child(n+4) { animation-delay:.3s; }
 .scene-mascot { scale:-1 1; transform-origin:50% 97%; animation:mascot-sway 5.5s ease-in-out infinite; }
+.mascot-natural-motion .scene-mascot { animation:none; }
 .mascot-stage::before { animation:shadow-breathe 5.5s ease-in-out infinite; }
 .mascot-cast-shadow { animation:cast-breathe 5.5s ease-in-out infinite; }
 .scene-section[data-motion="ready"] .scene-mascot,.scene-section[data-motion="ready"] .mascot-stage::before,.scene-section[data-motion="ready"] .mascot-cast-shadow { animation-play-state:paused; }

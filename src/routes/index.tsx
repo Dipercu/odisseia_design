@@ -9,6 +9,7 @@ import quiz from "@/assets/s5-quiz-background.png";
 import idades from "@/assets/s6-idades-background.png";
 import leve from "@/assets/s7-leve-background.png";
 import mascotSrc from "@/assets/odisseia-mascote-original.png.asset.json";
+import mascotMotion from "@/assets/odisseia-mascote-natural.gif.asset.json";
 
 const thAt = explore;
 const thNt = jornada;
@@ -78,6 +79,15 @@ function StoreBadge({ store, href }: { store: "apple" | "google"; href: string }
 
 function Scene({ src, children, className = "", id, imgClass = "", mascot = false }: { src: string; children: React.ReactNode; className?: string; id?: string; imgClass?: string; mascot?: boolean }) {
   const sceneRef = useRef<HTMLElement>(null);
+  const [animateMascot, setAnimateMascot] = useState(false);
+  useEffect(() => {
+    if (!mascot) return;
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setAnimateMascot(!preference.matches);
+    update();
+    preference.addEventListener('change', update);
+    return () => preference.removeEventListener('change', update);
+  }, [mascot]);
   useEffect(() => {
     const scene = sceneRef.current;
     if (!scene || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -94,9 +104,9 @@ function Scene({ src, children, className = "", id, imgClass = "", mascot = fals
     <section ref={sceneRef} id={id} className={`scene-section relative isolate scroll-mt-16 overflow-hidden ${className}`}>
       <img src={src} alt="" aria-hidden className={`scene-image absolute inset-0 -z-20 h-full w-full object-cover ${imgClass}`} />
       {mascot && (
-        <div className="mascot-stage mascot-hero">
-          <img src={mascotSrc.url} alt="" aria-hidden width={1351} height={1164} className="mascot-cast-shadow" />
-          <img src={mascotSrc.url} alt="Mascote original de Odisseia Bíblica" width={1351} height={1164} className="scene-mascot" />
+        <div className={`mascot-stage mascot-hero${animateMascot ? " mascot-natural-motion" : ""}`}>
+          <img src={animateMascot ? mascotMotion.url : mascotSrc.url} alt="" aria-hidden width={1351} height={1164} className="mascot-cast-shadow" />
+          <img src={animateMascot ? mascotMotion.url : mascotSrc.url} alt="Mascote de Odisseia Bíblica" width={1351} height={1164} className="scene-mascot" />
         </div>
       )}
       {children}
