@@ -62,9 +62,9 @@ export const Route = createFileRoute("/")({
 
 function Logo({ big = false }: { big?: boolean }) {
   return (
-    <a href="#inicio" className="flex items-center gap-2 text-gold">
-      <Compass className={big ? "h-12 w-12" : "h-8 w-8"} strokeWidth={1.4} />
-      <span className={`font-display font-semibold leading-none ${big ? "text-2xl" : "text-base"}`}>
+    <a href="#inicio" className="flex items-center gap-2.5 text-gold">
+      <Compass className={big ? "h-12 w-12" : "h-10 w-10"} strokeWidth={1.4} />
+      <span className={`font-display font-semibold leading-none ${big ? "text-2xl" : "text-lg"}`}>
         <span className="text-foreground">ODISSEIA</span>{big ? " " : <br />}BÍBLICA
       </span>
     </a>
