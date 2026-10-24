@@ -1,10 +1,10 @@
 import { ArrowRight, Check } from "lucide-react";
-import learn from "@/assets/info-learn.webp";
-import fun from "@/assets/info-fun.webp";
-import care from "@/assets/info-care.webp";
-import audience from "@/assets/info-audience.webp";
-import plans from "@/assets/info-plans.webp";
-import faq from "@/assets/info-faq.webp";
+import bg_learn from "@/assets/info-learn.webp";
+import bg_fun from "@/assets/info-fun.webp";
+import bg_care from "@/assets/info-care.webp";
+import bg_audience from "@/assets/info-audience.webp";
+import bg_plans from "@/assets/info-plans.webp";
+import bg_faq from "@/assets/info-faq.webp";
 
 function Bg({ src, children }: { src: string; children: React.ReactNode }) {
   return (
@@ -99,27 +99,27 @@ export function SiteInfo() {
         </div>
       </section>
 
-      <Bg src={learn}><div className={wrap}>
+      <Bg src={bg_learn}><div className={wrap}>
         <Head kicker="Como você aprende" title="Um pouquinho todo dia vira conhecimento para a vida" />
         <Cards list={learn} cols="md:grid-cols-3" />
       </div></Bg>
 
-      <Bg src={fun}><div className={wrap}>
+      <Bg src={bg_fun}><div className={wrap}>
         <Head kicker="O lado divertido" title="Aprender a Bíblia é pura diversão" />
         <Cards list={fun} cols="sm:grid-cols-2 lg:grid-cols-3" />
       </div></Bg>
 
-      <Bg src={care}><div className={wrap}>
+      <Bg src={bg_care}><div className={wrap}>
         <Head kicker="Feito com cuidado" title="Divertido, sem perder a fidelidade" />
         <Cards list={care} cols="sm:grid-cols-2 lg:grid-cols-5" />
       </div></Bg>
 
-      <Bg src={audience}><div className={wrap}>
+      <Bg src={bg_audience}><div className={wrap}>
         <Head kicker="Para quem é" title="Para aprender sozinho, em família ou na igreja" />
         <Cards list={audience} cols="md:grid-cols-3" />
       </div></Bg>
 
-      <Bg src={plans}><div className={wrap}>
+      <Bg src={bg_plans}><div className={wrap}>
         <Head kicker="Planos" title="Comece grátis. Vá mais fundo quando quiser." />
         <div className="mx-auto mt-10 grid max-w-4xl gap-6 md:grid-cols-2">
           {plans.map((p) => (
@@ -138,7 +138,7 @@ export function SiteInfo() {
         <p className="mx-auto mt-6 max-w-2xl text-center text-xs text-foreground/70">Cancele quando quiser. Na Sala ao vivo, só quem cria a sala precisa ser Premium; quem entra aprende de graça.</p>
       </div></Bg>
 
-      <Bg src={faq}><div className={wrap}>
+      <Bg src={bg_faq}><div className={wrap}>
         <Head kicker="Dúvidas" title="Perguntas frequentes" />
         <div className="mx-auto mt-10 max-w-3xl space-y-3">
           {faq.map(([q, a]) => (
