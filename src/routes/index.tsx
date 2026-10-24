@@ -11,6 +11,7 @@ import idades from "@/assets/s6-idades-background.webp";
 import leve from "@/assets/s7-leve-background.webp";
 import mascotSrc from "@/assets/odisseia-mascote-original.webp.asset.json";
 import mascotMotion from "@/assets/odisseia-mascote-natural.webp.asset.json";
+import { SiteInfo } from "@/components/SiteInfo";
 
 const thAt = explore;
 const thNt = jornada;
@@ -246,6 +247,8 @@ function OdisseiaLanding() {
           </div>
         </div>
       </Scene>
+
+      <SiteInfo />
 
       {/* 7 Leve / waitlist */}
       <Scene id="espera" src={leve} imgClass="object-[30%_center]" className="py-10">
