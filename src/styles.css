@@ -184,11 +184,6 @@ body { font-family: var(--font-sans); }
 .scene-image { transform:none !important; object-position:center; }
 .scene-mascot { position:absolute; object-fit:contain; height:auto; pointer-events:none; z-index:-8; }
 .mascot-hero { width:42%; max-width:620px; right:4%; bottom:6%; }
-.mascot-jornada { width:32%; max-width:430px; right:8%; bottom:6%; }
-.mascot-divertido,.mascot-leve { width:38%; max-width:480px; left:4%; bottom:4%; }
-.mascot-explore { width:27%; max-width:350px; left:35%; bottom:8%; }
-.mascot-quiz { width:19%; max-width:220px; left:36%; top:3%; }
-.mascot-idades { width:20%; max-width:260px; left:36%; top:5%; }
 @media(max-width:767px) {
   .scene-section:has(.scene-mascot) { flex-direction:column; gap:2rem; }
   .scene-mascot { position:relative; width:min(72%,320px); max-width:320px; inset:auto; flex-shrink:0; z-index:0; }
