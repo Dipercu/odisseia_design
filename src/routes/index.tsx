@@ -46,10 +46,10 @@ function Scene({ src, children, className = "", id, imgClass = "", mascot = fals
   useEffect(() => {
     const scene = sceneRef.current;
     if (!scene || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    scene.dataset.motion = 'ready';
+    scene.dataset['motion'] = 'ready';
     const observer = new IntersectionObserver(([entry]) => {
       if (!entry?.isIntersecting) return;
-      scene.dataset.motion = 'visible';
+      scene.dataset['motion'] = 'visible';
       observer.unobserve(scene);
     }, { threshold: 0.08 });
     observer.observe(scene);
