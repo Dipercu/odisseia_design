@@ -138,6 +138,7 @@ function OdisseiaLanding() {
 
       {/* 1 Hero */}
       <Scene id="inicio" src={hero} mobileSrc={heroMobile} mascot imgClass="object-[70%_center]" className="flex min-h-[640px] items-center pt-24 pb-12 lg:min-h-[720px]">
+        <div className="absolute inset-0 -z-10 bg-navy/30" aria-hidden />
         <div className="fade-l absolute inset-0 -z-10" />
         <div className="mx-auto w-full max-w-7xl px-5 lg:px-8">
           <div className="scene-copy max-w-xl max-md:mx-auto max-md:text-center">
