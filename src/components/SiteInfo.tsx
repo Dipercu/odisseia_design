@@ -1,10 +1,7 @@
 import { ArrowRight, Check } from "lucide-react";
 import bg_learn from "@/assets/info-learn.webp";
-import bg_fun from "@/assets/info-fun.webp";
 import bg_care from "@/assets/info-care.webp";
-import bg_audience from "@/assets/info-audience.webp";
 import bg_plans from "@/assets/info-plans.webp";
-import bg_faq from "@/assets/info-faq.webp";
 
 function Bg({ src, children }: { src: string; children: React.ReactNode }) {
   return (
@@ -14,6 +11,10 @@ function Bg({ src, children }: { src: string; children: React.ReactNode }) {
       {children}
     </section>
   );
+}
+
+function Plain({ children }: { children: React.ReactNode }) {
+  return <section className="py-14 md:py-20">{children}</section>;
 }
 
 const stats = [
@@ -104,20 +105,20 @@ export function SiteInfo() {
         <Cards list={learn} cols="md:grid-cols-3" />
       </div></Bg>
 
-      <Bg src={bg_fun}><div className={wrap}>
+      <Plain><div className={wrap}>
         <Head kicker="O lado divertido" title="Aprender a Bíblia é pura diversão" />
         <Cards list={fun} cols="sm:grid-cols-2 lg:grid-cols-3" />
-      </div></Bg>
+      </div></Plain>
 
       <Bg src={bg_care}><div className={wrap}>
         <Head kicker="Feito com cuidado" title="Divertido, sem perder a fidelidade" />
         <Cards list={care} cols="sm:grid-cols-2 lg:grid-cols-5" />
       </div></Bg>
 
-      <Bg src={bg_audience}><div className={wrap}>
+      <Plain><div className={wrap}>
         <Head kicker="Para quem é" title="Para aprender sozinho, em família ou na igreja" />
         <Cards list={audience} cols="md:grid-cols-3" />
-      </div></Bg>
+      </div></Plain>
 
       <Bg src={bg_plans}><div className={wrap}>
         <Head kicker="Planos" title="Comece grátis. Vá mais fundo quando quiser." />
@@ -138,7 +139,7 @@ export function SiteInfo() {
         <p className="mx-auto mt-6 max-w-2xl text-center text-xs text-foreground/70">Cancele quando quiser. Na Sala ao vivo, só quem cria a sala precisa ser Premium; quem entra aprende de graça.</p>
       </div></Bg>
 
-      <Bg src={bg_faq}><div className={wrap}>
+      <Plain><div className={wrap}>
         <Head kicker="Dúvidas" title="Perguntas frequentes" />
         <div className="mx-auto mt-10 max-w-3xl space-y-3">
           {faq.map(([q, a]) => (
@@ -148,7 +149,7 @@ export function SiteInfo() {
             </details>
           ))}
         </div>
-      </div></Bg>
+      </div></Plain>
     </div>
   );
 }
