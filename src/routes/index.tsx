@@ -316,13 +316,16 @@ function OdisseiaLanding() {
 
       {/* 5 Quiz */}
       <Scene id="perguntas" src={quiz} className="py-12 md:py-16">
-        <div className="mx-auto grid w-full max-w-7xl items-center gap-10 px-5 md:grid-cols-[.9fr_1.1fr] lg:px-8">
-          <QuizCard />
-          <div className="scene-copy max-md:mx-auto max-md:text-center rounded-2xl bg-navy-deep/85 p-7 backdrop-blur-md md:max-w-md">
+        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-8 px-5 lg:px-8">
+          <div className="scene-copy w-full max-w-2xl rounded-2xl bg-navy-deep/85 p-7 text-center backdrop-blur-md">
             <h2 className="font-display text-3xl leading-tight md:text-4xl">PEQUENAS PERGUNTAS <span className="block text-gold">GRANDES APRENDIZADOS</span></h2>
-            <p className="mt-4 text-sm leading-6 text-foreground/90 [text-shadow:0_2px_8px_var(--navy-deep)]">Aprenda de forma leve e envolvente com perguntas que desafiam o seu conhecimento e fortalecem a sua fé.</p>
+            <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-foreground/90 [text-shadow:0_2px_8px_var(--navy-deep)]">Aprenda de forma leve e envolvente com perguntas que desafiam o seu conhecimento e fortalecem a sua fé.</p>
+          </div>
+          <div className="flex w-full justify-center">
+            <QuizCard />
           </div>
         </div>
+
       </Scene>
 
       {/* 6 Idades */}
