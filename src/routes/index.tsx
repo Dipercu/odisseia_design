@@ -144,7 +144,7 @@ function OdisseiaLanding() {
           <div className="scene-copy max-w-xl max-md:mx-auto max-md:text-center">
             <p className="text-xs font-semibold uppercase tracking-[.25em] text-gold">Uma nova jornada está começando</p>
             <h1 className="mt-4 font-display text-4xl leading-[1.08] md:text-[3.4rem]">DESCUBRA HISTÓRIAS REAIS <span className="text-gold">QUE TRANSFORMAM SUA VIDA</span></h1>
-            <p className="mt-5 max-w-md text-base leading-7 text-foreground/90 max-md:mx-auto">Odisseia Bíblica é um App de perguntas e respostas que torna o aprendizado da Bíblia uma experiência incrível, envolvente e divertida.</p>
+            <p className="mt-5 max-w-md text-base leading-7 text-foreground/90 max-md:mx-auto">Odisseia Bíblica é um App de perguntas e respostas que torna o aprendizado da Bíblia uma experiência incrível, envolvente e divertida</p>
             <a href="#espera" className="btn-gold mt-8 py-3 pr-7 pl-3 text-sm"><span className="grid h-8 w-8 place-items-center rounded-full bg-navy-deep text-gold"><ArrowRight size={18} /></span>Baixe o Aplicativo</a>
             <div className="mt-10 flex flex-wrap gap-4 max-md:justify-center">
               {[[Gamepad2, "Divirta-se", "e responda desafios"], [BookOpen, "Explore", "histórias bíblicas"], [BarChart3, "Evolua", "em níveis e conquistas"]].map(([I, t, d]) => {
