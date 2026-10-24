@@ -190,7 +190,7 @@ body { font-family: var(--font-sans); }
 .scene-mascot { position:relative; display:block; width:100%; height:auto; object-fit:contain; filter:drop-shadow(3px -2px 3px var(--mascot-rim)) drop-shadow(-8px 10px 10px var(--mascot-shadow)); }
 .mascot-stage::before { content:""; position:absolute; width:78%; height:12%; left:5%; bottom:-3%; border-radius:50%; background:radial-gradient(ellipse,var(--mascot-shadow),transparent 70%); transform:rotate(-9deg); filter:blur(8px); }
 .mascot-stage::after { content:""; position:absolute; width:49%; height:4%; left:27%; bottom:0; z-index:-1; border-radius:50%; background:radial-gradient(ellipse,var(--mascot-contact),transparent 72%); box-shadow:0 -8px 22px var(--mascot-bounce); filter:blur(3px); }
-.mascot-cast-shadow { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; transform-origin:50% 98%; transform:translateX(-8%) skewX(48deg) scaleY(-.19); filter:brightness(0) blur(9px); opacity:.45; }
+.mascot-cast-shadow { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; transform-origin:50% 98%; transform:translateX(-8%) skewX(48deg) scaleY(-.19) scaleX(-1); filter:brightness(0) blur(9px); opacity:.45; }
 .mascot-hero { width:42%; max-width:620px; right:4%; bottom:6%; }
 @media(max-width:767px) {
   .scene-section:has(.mascot-stage) { flex-direction:column; gap:2rem; }
