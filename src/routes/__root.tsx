@@ -79,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Odisseia Bíblica" },
-      { name: "description", content: "Jogo de perguntas e respostas bíblicas." },
+      { name: "description", content: "App de perguntas e respostas bíblicas." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
