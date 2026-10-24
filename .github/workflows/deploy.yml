@@ -33,5 +33,5 @@ jobs:
           protocol: ftps
           port: 21
           local-dir: ./dist/
-          server-dir: ./public_html/odisseiabiblica.com
+          server-dir: ./public_html/odisseiabiblica.com/
           dangerous-clean-slate: false
