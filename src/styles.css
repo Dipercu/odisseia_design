@@ -248,8 +248,13 @@ html { scroll-behavior:smooth; }
 @keyframes mascot-sway { 0%,100% { transform:translateY(0) rotate(-.45deg); } 50% { transform:translateY(-6px) rotate(.65deg); } }
 @keyframes shadow-breathe { 0%,100% { opacity:1; } 50% { opacity:.72; } }
 @keyframes cast-breathe { 0%,100% { opacity:.45; } 50% { opacity:.35; } }
+/* Permanent floating icons inside the info cards. */
+.icon-float { will-change:transform; animation:icon-float 4.6s ease-in-out infinite, icon-glow 4.6s ease-in-out infinite; }
+@keyframes icon-float { 0%,100% { transform:translateY(0) scale(1); } 50% { transform:translateY(-10px) scale(1.045); } }
+@keyframes icon-glow { 0%,100% { filter:drop-shadow(0 10px 18px rgba(0,0,0,.55)); } 50% { filter:drop-shadow(0 16px 26px rgba(0,0,0,.5)) drop-shadow(0 0 18px color-mix(in oklab,var(--gold) 45%,transparent)); } }
 @media(prefers-reduced-motion:reduce) {
   html { scroll-behavior:auto; }
   .scene-section *,.scene-section *::before,.scene-section *::after { animation:none !important; transition:none !important; }
   .scene-section[data-motion] > div { opacity:1 !important; translate:none !important; }
+  .icon-float { animation:none !important; }
 }

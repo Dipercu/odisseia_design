@@ -84,9 +84,9 @@ function Head({ kicker, title }: { kicker: string; title: string }) {
 function Cards({ list, cols }: { list: string[][]; cols: string }) {
   return (
     <div className={`mt-10 grid gap-5 ${cols}`}>
-      {list.map(([t, d, icon]) => (
-        <div key={t} className="rounded-2xl border border-gold/20 bg-navy-deep/75 backdrop-blur-sm p-6 transition hover:border-gold/60">
-          {icon && <img src={icon} alt="" aria-hidden loading="lazy" decoding="async" width={64} height={64} className="mb-3 h-16 w-16 object-contain drop-shadow-[0_10px_18px_rgba(0,0,0,0.55)]" />}
+      {list.map(([t, d, icon], i) => (
+        <div key={t} className={`rounded-2xl border border-gold/20 bg-navy-deep/75 backdrop-blur-sm p-6 transition hover:border-gold/60 ${icon ? "flex flex-col items-center text-center" : ""}`}>
+          {icon && <img src={icon} alt="" aria-hidden loading="lazy" decoding="async" width={96} height={96} className="icon-float mb-4 h-24 w-24 object-contain" style={{ animationDelay: `${i * 0.35}s` }} />}
           <h3 className="font-display text-lg text-gold">{t}</h3>
           <p className="mt-2 text-sm leading-6 text-foreground/85">{d}</p>
         </div>
