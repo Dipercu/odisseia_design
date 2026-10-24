@@ -132,12 +132,12 @@ function OdisseiaLanding() {
       <Scene id="inicio" src={hero} mascot imgClass="object-[70%_center]" className="flex min-h-[640px] items-center pt-24 pb-12 lg:min-h-[720px]">
         <div className="fade-l absolute inset-0 -z-10" />
         <div className="mx-auto w-full max-w-7xl px-5 lg:px-8">
-          <div className="scene-copy max-w-xl">
+          <div className="scene-copy max-w-xl max-md:mx-auto max-md:text-center">
             <p className="text-xs font-semibold uppercase tracking-[.25em] text-gold">Uma nova jornada está começando</p>
             <h1 className="mt-4 font-display text-4xl leading-[1.08] md:text-[3.4rem]">DESCUBRA HISTÓRIAS REAIS <span className="text-gold">QUE TRANSFORMAM SUA VIDA</span></h1>
-            <p className="mt-5 max-w-md text-base leading-7 text-foreground/90">Odisseia Bíblica é um App de perguntas e respostas que torna o aprendizado da Bíblia uma experiência incrível, envolvente e divertida.</p>
+            <p className="mt-5 max-w-md text-base leading-7 text-foreground/90 max-md:mx-auto">Odisseia Bíblica é um App de perguntas e respostas que torna o aprendizado da Bíblia uma experiência incrível, envolvente e divertida.</p>
             <a href="#espera" className="btn-gold mt-8 py-3 pr-7 pl-3 text-sm"><span className="grid h-8 w-8 place-items-center rounded-full bg-navy-deep text-gold"><ArrowRight size={18} /></span>Baixe o Aplicativo</a>
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-10 flex flex-wrap gap-4 max-md:justify-center">
               {[[Gamepad2, "Divirta-se", "e responda desafios"], [BookOpen, "Explore", "histórias bíblicas"], [BarChart3, "Evolua", "em níveis e conquistas"]].map(([I, t, d]) => {
                 const Icon = I as typeof Gamepad2;
                 return <div key={t as string} className="flex items-center gap-3"><span className="grid h-12 w-12 place-items-center rounded-full border border-gold/60 text-gold"><Icon size={22} /></span><span className="text-xs leading-tight"><b className="block uppercase">{t as string}</b><span className="text-foreground/75">{d as string}</span></span></div>;
@@ -150,7 +150,7 @@ function OdisseiaLanding() {
       {/* 2 Jornada */}
       <Scene id="como-funciona" src={jornada} imgClass="object-left" className="flex min-h-[420px] items-center py-12">
         <div className="mx-auto w-full max-w-7xl px-5 lg:px-8">
-          <div className="scene-copy w-full max-w-lg rounded-2xl bg-navy-deep/85 p-7 text-foreground shadow-xl backdrop-blur-md md:p-10">
+          <div className="scene-copy w-full max-w-lg max-md:mx-auto max-md:text-center rounded-2xl bg-navy-deep/85 p-7 text-foreground shadow-xl backdrop-blur-md md:p-10">
             <h2 className="font-display text-2xl font-semibold leading-tight md:text-4xl">MAIS QUE DIVERSÃO, UMA JORNADA DE FÉ</h2>
             <p className="mt-4 font-medium leading-7">Cada desafio superado te leva mais perto de conhecer a palavra de Deus e viver grandes histórias que marcaram o mundo.</p>
           </div>
@@ -161,10 +161,10 @@ function OdisseiaLanding() {
       <Scene id="funcionalidades" src={divertido} imgClass="object-[25%_center]" className="py-14 md:py-20">
         <div className="mx-auto grid w-full max-w-7xl px-5 md:grid-cols-[1fr_1.15fr] lg:px-8">
           <div className="hidden md:block" />
-          <div className="scene-copy rounded-2xl border border-gold/15 bg-navy-deep/80 p-7 backdrop-blur-md md:p-10">
+          <div className="scene-copy max-md:text-center rounded-2xl border border-gold/15 bg-navy-deep/80 p-7 backdrop-blur-md md:p-10">
             <p className="text-sm uppercase tracking-[.25em] text-gold">Aprender a Bíblia</p>
             <h2 className="mt-3 font-display text-4xl leading-tight md:text-5xl">NUNCA FOI TÃO <span className="block text-5xl text-gold md:text-6xl">DIVERTIDO</span></h2>
-            <p className="mt-4 max-w-md text-foreground/90">Divirta-se, responda, explore e evolua em uma experiência feita para todas as idades.</p>
+            <p className="mt-4 max-w-md text-foreground/90 max-md:mx-auto">Divirta-se, responda, explore e evolua em uma experiência feita para todas as idades.</p>
             <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-4">
               {[[Gamepad2, "Desafios", "interativos"], [BookOpen, "Histórias", "bíblicas reais"], [BarChart3, "Evolução", "em níveis"], [Crown, "Conquistas", "especiais"]].map(([I, t, d]) => {
                 const Icon = I as typeof Gamepad2;
@@ -180,8 +180,8 @@ function OdisseiaLanding() {
         <div className="fade-l absolute inset-0 -z-10" />
         <div className="mx-auto grid w-full max-w-7xl items-center gap-8 px-5 md:grid-cols-[1fr_1fr_1fr] lg:px-8">
           <div>
-            <h2 className="font-display text-4xl leading-tight md:text-5xl">EXPLORE A BÍBLIA COM UM NOVO <span className="text-gold">OLHAR</span></h2>
-            <p className="mt-4 text-sm leading-6 text-foreground/90">Viaje por grandes histórias, conheça personagens marcantes e reviva momentos que revelam o plano de Deus para a humanidade.</p>
+            <h2 className="font-display text-4xl leading-tight md:text-5xl max-md:text-center">EXPLORE A BÍBLIA COM UM NOVO <span className="text-gold">OLHAR</span></h2>
+            <p className="mt-4 text-sm leading-6 text-foreground/90 max-md:text-center">Viaje por grandes histórias, conheça personagens marcantes e reviva momentos que revelam o plano de Deus para a humanidade.</p>
           </div>
           <div className="hidden md:block" />
           <div className="space-y-3">
@@ -202,8 +202,8 @@ function OdisseiaLanding() {
       <Scene id="perguntas" src={quiz} className="py-12 md:py-16">
         <div className="mx-auto grid w-full max-w-7xl items-center gap-10 px-5 md:grid-cols-[.9fr_1.1fr] lg:px-8">
           <div className="rounded-2xl bg-parchment p-6 text-ink shadow-2xl md:max-w-sm">
-            <p className="text-[10px] font-semibold uppercase tracking-wider text-ink/70">Desafios que fazem você pensar</p>
-            <h3 className="mt-3 mb-4 text-lg font-bold">Qual é o maior mandamento?</h3>
+            <p className="text-[10px] font-semibold uppercase tracking-wider text-ink/70 max-md:text-center">Desafios que fazem você pensar</p>
+            <h3 className="mt-3 mb-4 text-lg font-bold max-md:text-center">Qual é o maior mandamento?</h3>
             <div className="space-y-2">
               {options.map((o, i) => (
                 <button type="button" key={o} onClick={() => setAnswer(i)} aria-pressed={answer === i}
@@ -216,7 +216,7 @@ function OdisseiaLanding() {
             </div>
             {answer !== null && <p role="status" className="mt-3 text-xs font-medium">{answer === 0 ? "Correto! Veja Mateus 22:37–38." : "Tente novamente! Dica: Mateus 22:37–38."}</p>}
           </div>
-          <div className="scene-copy rounded-2xl bg-navy-deep/85 p-7 backdrop-blur-md md:max-w-md">
+          <div className="scene-copy max-md:mx-auto max-md:text-center rounded-2xl bg-navy-deep/85 p-7 backdrop-blur-md md:max-w-md">
             <h2 className="font-display text-3xl leading-tight md:text-4xl">PEQUENAS PERGUNTAS <span className="block text-gold">GRANDES APRENDIZADOS</span></h2>
             <p className="mt-4 text-sm leading-6 text-foreground/90 [text-shadow:0_2px_8px_var(--navy-deep)]">Aprenda de forma leve e envolvente com perguntas que desafiam o seu conhecimento e fortalecem a sua fé.</p>
           </div>
@@ -226,7 +226,7 @@ function OdisseiaLanding() {
       {/* 6 Idades */}
       <Scene id="idades" src={idades} imgClass="object-[80%_center]" className="py-14 md:py-20">
         <div className="mx-auto w-full max-w-7xl px-5 lg:px-8">
-          <div className="max-w-sm rounded-2xl bg-navy-deep/60 p-6 md:bg-transparent md:p-0">
+          <div className="max-w-sm max-md:mx-auto max-md:text-center rounded-2xl bg-navy-deep/60 p-6 md:bg-transparent md:p-0">
             <h2 className="font-display text-4xl leading-tight md:text-5xl">PARA TODAS <span className="block text-gold">AS IDADES</span></h2>
             <p className="mt-4 text-sm leading-6 text-foreground/90">Uma jornada para crianças, jovens e adultos. Aprenda, reflita e compartilhe a Palavra em família e com amigos.</p>
             <div className="mt-8 grid grid-cols-3 gap-4">
