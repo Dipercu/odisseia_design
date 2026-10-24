@@ -215,7 +215,7 @@ body { font-family: var(--font-sans); }
 .scene-copy p { text-wrap:pretty; }
 .scene-section a,.scene-section button { transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease; }
 .scene-section a:hover,.scene-section button:hover { transform:translateY(-2px); }
-@media(max-width:767px) { .scene-section { min-height:0; padding-block:3rem; } .scene-section:first-of-type { min-height:0; padding-block:5.5rem 2.5rem; } .scene-image { object-position:65% center; } .scene-section::before { background:linear-gradient(90deg,rgba(5,14,32,.88),rgba(5,14,32,.5)),linear-gradient(0deg,rgba(5,14,32,.88),transparent 60%); } }
+@media(max-width:767px) { .scene-section { min-height:0; padding-block:3rem; } .scene-section:first-of-type { min-height:0; padding-block:7rem 2.5rem; } .scene-image { object-position:65% center; } .scene-section::before { background:linear-gradient(90deg,rgba(5,14,32,.88),rgba(5,14,32,.5)),linear-gradient(0deg,rgba(5,14,32,.88),transparent 60%); } }
 /* One-time cinematic reveals, with content visible before hydration. */
 html { scroll-behavior:smooth; }
 .scene-section[data-motion] > div:not(.mascot-stage):not(.fade-l):not(.fade-r):not(.fade-b) { transition:opacity .85s ease,translate .85s cubic-bezier(.2,.65,.25,1); }
