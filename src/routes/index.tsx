@@ -18,9 +18,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Odisseia Bíblica — Uma jornada de fé" },
-      { name: "description", content: "App de perguntas e respostas que torna o aprendizado da Bíblia incrível, envolvente e divertido. Entre na lista de espera." },
+      { name: "description", content: "App de perguntas e respostas que torna o aprendizado da Bíblia incrível, envolvente e divertido. Baixe o Aplicativo." },
       { property: "og:title", content: "Odisseia Bíblica — Uma jornada de fé" },
-      { property: "og:description", content: "Descubra histórias reais que transformam sua vida. Entre na lista de espera." },
+      { property: "og:description", content: "Descubra histórias reais que transformam sua vida. Baixe o Aplicativo." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -36,6 +36,41 @@ function Logo({ big = false }: { big?: boolean }) {
       <Compass className={big ? "h-12 w-12" : "h-8 w-8"} strokeWidth={1.4} />
       <span className={`font-display font-semibold leading-none ${big ? "text-2xl" : "text-base"}`}>
         <span className="text-foreground">ODISSEIA</span>{big ? " " : <br />}BÍBLICA
+      </span>
+    </a>
+  );
+}
+
+const APP_STORE_URL = "#";
+const PLAY_STORE_URL = "#";
+
+function AppleGlyph() {
+  return (
+    <svg viewBox="0 0 24 24" width={26} height={26} fill="currentColor" aria-hidden className="shrink-0">
+      <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
+    </svg>
+  );
+}
+
+function PlayGlyph() {
+  return (
+    <svg viewBox="0 0 520 512" width={24} height={24} aria-hidden className="shrink-0">
+      <path fill="#00A0FF" d="M47.6 20.3C44.5 23.5 42.6 28.4 42.6 35.1v441.8c0 6.7 1.9 11.6 5 14.8l1.2 1.1 247.5-247.5v-5.8L48.8 19.2l-1.2 1.1z" />
+      <path fill="#FFBC00" d="M396.4 344.6 296.3 244.5v-5.8l100.1-100.1 2.3 1.3 118.5 67.3c33.9 19.2 33.9 50.6 0 69.9l-118.5 67.3-2.3 1.2z" />
+      <path fill="#FF3A44" d="M398.7 343.4 296.3 241 47.6 489.7c11.1 11.6 29.5 13 49.3 1.7l301.8-148z" />
+      <path fill="#00C853" d="M398.7 138.6 96.9 29.4C77.1 18.1 58.7 19.5 47.6 31.1L296.3 241l102.4-102.4z" />
+    </svg>
+  );
+}
+
+function StoreBadge({ store, href }: { store: "apple" | "google"; href: string }) {
+  const apple = store === "apple";
+  return (
+    <a href={href} className="store-badge" aria-label={apple ? "Baixar na App Store" : "Baixar no Google Play"}>
+      {apple ? <AppleGlyph /> : <PlayGlyph />}
+      <span className="text-left leading-tight">
+        <span className="block text-[10px] uppercase tracking-[.14em] opacity-75">{apple ? "Baixar na" : "Disponível no"}</span>
+        <span className="block text-lg font-semibold tracking-tight">{apple ? "App Store" : "Google Play"}</span>
       </span>
     </a>
   );
@@ -71,22 +106,6 @@ function Scene({ src, children, className = "", id, imgClass = "", mascot = fals
 
 function OdisseiaLanding() {
   const [answer, setAnswer] = useState<number | null>(null);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
-  const [error, setError] = useState("");
-  const endpoint = import.meta.env["VITE_WAITLIST_ENDPOINT"] as string | undefined;
-
-  async function subscribe(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    if (!endpoint) { setState("error"); setError("A lista de espera ainda não foi conectada."); return; }
-    setState("sending"); setError("");
-    try {
-      const r = await fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ name: name.trim(), email: email.trim(), source: "odisseia_design" }) });
-      if (!r.ok) throw new Error("Não foi possível enviar o cadastro.");
-      setState("done");
-    } catch (e) { setState("error"); setError(e instanceof Error ? e.message : "Erro ao cadastrar."); }
-  }
 
   const options = ["Amar a Deus", "Ser o primeiro", "Vencer inimigos", "Construir um templo"];
 
@@ -96,7 +115,7 @@ function OdisseiaLanding() {
       <header className="absolute inset-x-0 top-0 z-50">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-5 px-5 lg:px-8">
           <Logo />
-          <a href="#espera" className="btn-gold px-4 py-2.5 text-xs sm:px-5"><span className="sm:hidden">Lista de espera</span><span className="hidden sm:inline">Entrar na lista de espera</span> <ArrowRight size={16} /></a>
+          <a href="#espera" className="btn-gold px-4 py-2.5 text-xs sm:px-5">Baixe o Aplicativo <ArrowRight size={16} /></a>
         </div>
       </header>
 
@@ -108,7 +127,7 @@ function OdisseiaLanding() {
             <p className="text-xs font-semibold uppercase tracking-[.25em] text-gold">Uma nova jornada está começando</p>
             <h1 className="mt-4 font-display text-4xl leading-[1.08] md:text-[3.4rem]">DESCUBRA HISTÓRIAS REAIS <span className="text-gold">QUE TRANSFORMAM SUA VIDA</span></h1>
             <p className="mt-5 max-w-md text-base leading-7 text-foreground/90">Odisseia Bíblica é um App de perguntas e respostas que torna o aprendizado da Bíblia uma experiência incrível, envolvente e divertida.</p>
-            <a href="#espera" className="btn-gold mt-8 py-3 pr-7 pl-3 text-sm"><span className="grid h-8 w-8 place-items-center rounded-full bg-navy-deep text-gold"><ArrowRight size={18} /></span>Entrar na lista de espera</a>
+            <a href="#espera" className="btn-gold mt-8 py-3 pr-7 pl-3 text-sm"><span className="grid h-8 w-8 place-items-center rounded-full bg-navy-deep text-gold"><ArrowRight size={18} /></span>Baixe o Aplicativo</a>
             <div className="mt-10 flex flex-wrap gap-4">
               {[[Gamepad2, "Divirta-se", "e responda desafios"], [BookOpen, "Explore", "histórias bíblicas"], [BarChart3, "Evolua", "em níveis e conquistas"]].map(([I, t, d]) => {
                 const Icon = I as typeof Gamepad2;
@@ -217,19 +236,10 @@ function OdisseiaLanding() {
           <div className="scene-copy mx-auto w-full max-w-3xl rounded-2xl border border-gold/20 bg-navy-deep/85 p-7 backdrop-blur-md md:p-10">
             <h2 className="font-display text-4xl leading-tight md:text-5xl">LEVE A BÍBLIA <span className="block text-gold">COM VOCÊ</span></h2>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-foreground/90 md:text-base">Onde estiver, sempre há uma nova história para descobrir. Odisseia Bíblica no seu celular, pronto para se divertir.</p>
-            {state === "done" ? <p role="status" className="mt-6 rounded-xl border border-success/50 bg-success/15 p-4">Cadastro recebido! Acompanhe seu e-mail.</p> : (
-              <form onSubmit={subscribe} className="mt-6 grid gap-3 sm:grid-cols-2">
-                <label htmlFor="nome" className="sr-only">Nome</label>
-                <input id="nome" required maxLength={100} value={name} onChange={e => setName(e.target.value)} placeholder="Seu nome" className="w-full rounded-full border border-foreground/25 bg-navy/80 px-5 py-3.5 text-sm outline-none focus:border-gold md:text-base" />
-                <label htmlFor="email" className="sr-only">E-mail</label>
-                <input id="email" type="email" required maxLength={254} value={email} onChange={e => setEmail(e.target.value)} placeholder="voce@exemplo.com" className="w-full rounded-full border border-foreground/25 bg-navy/80 px-5 py-3.5 text-sm outline-none focus:border-gold md:text-base" />
-                <button disabled={state === "sending"} className="btn-gold w-full justify-center px-6 py-3.5 text-sm disabled:opacity-50 sm:col-span-2">
-                  <span className="grid h-8 w-8 place-items-center rounded-full bg-navy-deep text-gold"><ArrowRight size={18} /></span>
-                  {state === "sending" ? "Enviando..." : "Entrar na lista de espera"}
-                </button>
-                {state === "error" && <p role="alert" className="text-sm text-destructive sm:col-span-2">{error}</p>}
-              </form>
-            )}
+            <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
+              <StoreBadge store="apple" href={APP_STORE_URL} />
+              <StoreBadge store="google" href={PLAY_STORE_URL} />
+            </div>
           </div>
         </div>
       </Scene>

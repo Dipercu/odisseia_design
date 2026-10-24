@@ -178,6 +178,17 @@ body { font-family: var(--font-sans); }
   transition: transform .2s, background .2s;
   &:hover { background: var(--gold-soft); transform: translateY(-2px); }
 }
+
+:root {
+  --badge-ink: oklch(.17 .012 265);
+  --badge-ink-foreground: oklch(.98 .004 95);
+}
+
+.store-badge { display:inline-flex; align-items:center; gap:.7rem; min-width:184px; border-radius:.9rem; padding:.65rem 1.15rem; background:var(--badge-ink); color:var(--badge-ink-foreground); border:1px solid color-mix(in oklab, var(--foreground) 28%, transparent); box-shadow:0 10px 26px -14px color-mix(in oklab, var(--navy-deep) 90%, transparent); transition:transform .2s, border-color .2s, box-shadow .2s; }
+.store-badge:hover { transform:translateY(-2px); border-color:var(--gold); box-shadow:0 14px 32px -12px color-mix(in oklab, var(--gold) 55%, transparent); }
+.store-badge:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
+@media(max-width:767px) { .store-badge { width:100%; max-width:270px; justify-content:center; } }
+
 @utility fade-l { background: linear-gradient(90deg, var(--navy-deep) 0%, color-mix(in oklab, var(--navy-deep) 70%, transparent) 40%, transparent 70%); }
 @utility fade-r { background: linear-gradient(270deg, var(--navy-deep) 0%, color-mix(in oklab, var(--navy-deep) 70%, transparent) 40%, transparent 70%); }
 @utility fade-b { background: linear-gradient(0deg, var(--navy-deep), transparent 60%); }
