@@ -149,8 +149,8 @@ function OdisseiaLanding() {
 
       {/* 2 Jornada */}
       <Scene id="como-funciona" src={jornada} imgClass="object-left" className="flex min-h-[420px] items-center py-12">
-        <div className="w-full">
-          <div className="scene-copy mx-5 max-w-lg rounded-2xl bg-navy-deep/85 p-7 text-foreground shadow-xl backdrop-blur-md md:ml-[10%] md:p-10">
+        <div className="mx-auto w-full max-w-7xl px-5 lg:px-8">
+          <div className="scene-copy w-full max-w-lg rounded-2xl bg-navy-deep/85 p-7 text-foreground shadow-xl backdrop-blur-md md:p-10">
             <h2 className="font-display text-2xl font-semibold leading-tight md:text-4xl">MAIS QUE DIVERSÃO, UMA JORNADA DE FÉ</h2>
             <p className="mt-4 font-medium leading-7">Cada desafio superado te leva mais perto de conhecer a palavra de Deus e viver grandes histórias que marcaram o mundo.</p>
           </div>
@@ -201,7 +201,7 @@ function OdisseiaLanding() {
       {/* 5 Quiz */}
       <Scene id="perguntas" src={quiz} className="py-12 md:py-16">
         <div className="mx-auto grid w-full max-w-7xl items-center gap-10 px-5 md:grid-cols-[.9fr_1.1fr] lg:px-8">
-          <div className="rounded-2xl bg-parchment p-6 text-ink shadow-2xl md:ml-8 md:max-w-sm">
+          <div className="rounded-2xl bg-parchment p-6 text-ink shadow-2xl md:max-w-sm">
             <p className="text-[10px] font-semibold uppercase tracking-wider text-ink/70">Desafios que fazem você pensar</p>
             <h3 className="mt-3 mb-4 text-lg font-bold">Qual é o maior mandamento?</h3>
             <div className="space-y-2">
@@ -253,7 +253,7 @@ function OdisseiaLanding() {
         </div>
       </Scene>
 
-      <footer className="bg-navy-deep px-5 py-8">
+      <footer className="bg-navy-deep px-5 py-8 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 md:flex-row">
           <div><Logo big /><p className="mt-1 pl-14 text-[10px] tracking-[.2em] text-foreground/70">DIVIRTA-SE • APRENDA • VIVA A PALAVRA</p></div>
           <div className="flex gap-4 text-foreground/80"><a href="#" aria-label="YouTube"><Youtube size={20} /></a><a href="#" aria-label="Instagram"><Instagram size={20} /></a><a href="#" aria-label="Facebook"><Facebook size={20} /></a></div>
