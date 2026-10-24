@@ -1,4 +1,20 @@
 import { ArrowRight, Check } from "lucide-react";
+import learn from "@/assets/info-learn.webp";
+import fun from "@/assets/info-fun.webp";
+import care from "@/assets/info-care.webp";
+import audience from "@/assets/info-audience.webp";
+import plans from "@/assets/info-plans.webp";
+import faq from "@/assets/info-faq.webp";
+
+function Bg({ src, children }: { src: string; children: React.ReactNode }) {
+  return (
+    <section className="relative isolate overflow-hidden py-14 md:py-20">
+      <img src={src} loading="lazy" decoding="async" width={1920} height={1088} alt="" aria-hidden className="absolute inset-0 -z-20 h-full w-full object-cover" />
+      <div className="absolute inset-0 -z-10 bg-navy-deep/60" aria-hidden />
+      {children}
+    </section>
+  );
+}
 
 const stats = [
   ["7.050", "perguntas com versículo"],
@@ -62,7 +78,7 @@ function Cards({ list, cols }: { list: string[][]; cols: string }) {
   return (
     <div className={`mt-10 grid gap-5 ${cols}`}>
       {list.map(([t, d]) => (
-        <div key={t} className="rounded-2xl border border-gold/20 bg-navy/40 p-6 transition hover:border-gold/60">
+        <div key={t} className="rounded-2xl border border-gold/20 bg-navy-deep/75 backdrop-blur-sm p-6 transition hover:border-gold/60">
           <h3 className="font-display text-lg text-gold">{t}</h3>
           <p className="mt-2 text-sm leading-6 text-foreground/85">{d}</p>
         </div>
@@ -83,31 +99,31 @@ export function SiteInfo() {
         </div>
       </section>
 
-      <section className="py-14 md:py-20"><div className={wrap}>
+      <Bg src={learn}><div className={wrap}>
         <Head kicker="Como você aprende" title="Um pouquinho todo dia vira conhecimento para a vida" />
         <Cards list={learn} cols="md:grid-cols-3" />
-      </div></section>
+      </div></Bg>
 
-      <section className="py-14 md:py-20"><div className={wrap}>
+      <Bg src={fun}><div className={wrap}>
         <Head kicker="O lado divertido" title="Aprender a Bíblia é pura diversão" />
         <Cards list={fun} cols="sm:grid-cols-2 lg:grid-cols-3" />
-      </div></section>
+      </div></Bg>
 
-      <section className="py-14 md:py-20"><div className={wrap}>
+      <Bg src={care}><div className={wrap}>
         <Head kicker="Feito com cuidado" title="Divertido, sem perder a fidelidade" />
         <Cards list={care} cols="sm:grid-cols-2 lg:grid-cols-5" />
-      </div></section>
+      </div></Bg>
 
-      <section className="py-14 md:py-20"><div className={wrap}>
+      <Bg src={audience}><div className={wrap}>
         <Head kicker="Para quem é" title="Para aprender sozinho, em família ou na igreja" />
         <Cards list={audience} cols="md:grid-cols-3" />
-      </div></section>
+      </div></Bg>
 
-      <section className="py-14 md:py-20"><div className={wrap}>
+      <Bg src={plans}><div className={wrap}>
         <Head kicker="Planos" title="Comece grátis. Vá mais fundo quando quiser." />
         <div className="mx-auto mt-10 grid max-w-4xl gap-6 md:grid-cols-2">
           {plans.map((p) => (
-            <div key={p.name} className={`rounded-2xl border p-7 ${p.tag ? "border-gold bg-navy/60" : "border-gold/20 bg-navy/40"}`}>
+            <div key={p.name} className={`rounded-2xl border p-7 ${p.tag ? "border-gold bg-navy-deep/80 backdrop-blur-sm" : "border-gold/20 bg-navy-deep/75 backdrop-blur-sm"}`}>
               {p.tag && <span className="text-xs font-semibold uppercase tracking-wider text-gold">{p.tag}</span>}
               <h3 className="mt-1 font-display text-2xl">{p.name}</h3>
               <p className="mt-2 text-2xl font-semibold text-gold">{p.price}</p>
@@ -120,19 +136,19 @@ export function SiteInfo() {
           ))}
         </div>
         <p className="mx-auto mt-6 max-w-2xl text-center text-xs text-foreground/70">Cancele quando quiser. Na Sala ao vivo, só quem cria a sala precisa ser Premium; quem entra aprende de graça.</p>
-      </div></section>
+      </div></Bg>
 
-      <section className="py-14 md:py-20"><div className={wrap}>
+      <Bg src={faq}><div className={wrap}>
         <Head kicker="Dúvidas" title="Perguntas frequentes" />
         <div className="mx-auto mt-10 max-w-3xl space-y-3">
           {faq.map(([q, a]) => (
-            <details key={q} className="group rounded-xl border border-gold/20 bg-navy/40 p-5 open:border-gold/60">
+            <details key={q} className="group rounded-xl border border-gold/20 bg-navy-deep/75 backdrop-blur-sm p-5 open:border-gold/60">
               <summary className="cursor-pointer list-none font-semibold marker:hidden">{q}</summary>
               <p className="mt-3 text-sm leading-6 text-foreground/85">{a}</p>
             </details>
           ))}
         </div>
-      </div></section>
+      </div></Bg>
     </div>
   );
 }
