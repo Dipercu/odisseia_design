@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, BookOpen, CheckCircle2, Crown, Gamepad2, Heart, Users, UserRound, BarChart3, Youtube, Instagram, Facebook, Compass } from "lucide-react";
+import { ArrowRight, BookOpen, Crown, Gamepad2, Heart, Users, UserRound, BarChart3, Youtube, Instagram, Facebook, Compass } from "lucide-react";
 import hero from "@/assets/s1-hero-background.webp";
 import heroMobile from "@/assets/s1-hero-mobile.webp";
 import jornada from "@/assets/s2-jornada-background.webp";
@@ -153,7 +153,6 @@ function Scene({ src, mobileSrc, children, className = "", id, imgClass = "", ma
 }
 
 function OdisseiaLanding() {
-  const [answer, setAnswer] = useState<number | null>(null);
   const [openTab, setOpenTab] = useState("at");
   const lanternRef = useRef<HTMLDivElement>(null);
 
@@ -204,7 +203,6 @@ function OdisseiaLanding() {
 
 
 
-  const options = ["Amar a Deus", "Ser o primeiro", "Vencer inimigos", "Construir um templo"];
 
   return (
     <main className="dark min-h-screen bg-navy-deep text-foreground">
@@ -366,5 +364,79 @@ function OdisseiaLanding() {
         </div>
       </footer>
     </main>
+  );
+}
+
+const QUIZ = [
+  { q: "Em quantos dias Deus criou o céu e a terra, segundo Gênesis 1?", opts: ["Dez dias", "Cinco dias", "Seis dias", "Sete dias"], correct: 2, answer: "Seis dias", note: "Deus criou em seis dias e no sétimo descansou.", ref: "Gênesis 1:31; 2:2" },
+  { q: "Qual é o maior mandamento, segundo Jesus?", opts: ["Amar a Deus", "Ser o primeiro", "Vencer inimigos", "Construir um templo"], correct: 0, answer: "Amar a Deus", note: "Amar a Deus de todo o coração, alma e entendimento.", ref: "Mateus 22:37–38" },
+  { q: "Quem foi engolido por um grande peixe?", opts: ["Pedro", "Jonas", "Elias", "Moisés"], correct: 1, answer: "Jonas", note: "Jonas ficou três dias e três noites no ventre do peixe.", ref: "Jonas 1:17" },
+];
+
+function QuizCard() {
+  const [step, setStep] = useState(0);
+  const [picked, setPicked] = useState<number | null>(null);
+  const [results, setResults] = useState<(boolean | null)[]>([null, null, null]);
+  const [done, setDone] = useState(false);
+  const item = QUIZ[step];
+  const pick = (i: number) => {
+    if (picked !== null) return;
+    setPicked(i);
+    setResults((r) => r.map((v, k) => (k === step ? i === item.correct : v)));
+  };
+  const next = () => {
+    if (step === QUIZ.length - 1) { setDone(true); return; }
+    setStep(step + 1); setPicked(null);
+  };
+  const restart = () => { setStep(0); setPicked(null); setResults([null, null, null]); setDone(false); };
+  const score = results.filter(Boolean).length;
+  return (
+    <div className="w-full rounded-3xl border-2 border-gold bg-quiz-card p-6 text-parchment shadow-[0_0_40px_-10px_var(--gold)] md:max-w-md md:p-7">
+      <div className="flex items-center justify-between">
+        <p className="text-sm text-parchment/70">{done ? "Resultado" : `Pergunta ${step + 1} de ${QUIZ.length}`}</p>
+        <div className="flex gap-1.5" aria-hidden>
+          {results.map((r, k) => (
+            <span key={k} className={`h-2 w-7 rounded-full ${r === true ? "bg-quiz-right" : r === false ? "bg-quiz-coral" : k === step && !done ? "bg-gold" : "bg-quiz-option-border"}`} />
+          ))}
+        </div>
+      </div>
+      {done ? (
+        <div className="mt-5 text-center">
+          <h3 className="font-display text-2xl leading-tight">Você acertou {score} de {QUIZ.length}!</h3>
+          <p className="mt-3 text-sm text-parchment/80">Continue aprendendo a Palavra todos os dias no App.</p>
+          <a href="#espera" className="btn-gold mt-6 w-full justify-center py-3 text-sm">Baixe o Aplicativo</a>
+          <button type="button" onClick={restart} className="mt-3 text-sm font-semibold text-gold hover:underline">Recomeçar</button>
+        </div>
+      ) : (
+        <>
+          <h3 className="mt-4 font-display text-xl leading-snug md:text-2xl">{item.q}</h3>
+          <div className="mt-5 space-y-3">
+            {item.opts.map((o, i) => {
+              const isRight = picked !== null && i === item.correct;
+              const isWrong = picked === i && i !== item.correct;
+              return (
+                <button type="button" key={o} onClick={() => pick(i)} disabled={picked !== null} aria-pressed={picked === i}
+                  className={`flex w-full items-center gap-4 rounded-2xl border-2 px-5 py-3.5 text-left font-semibold transition ${isRight ? "border-quiz-right bg-quiz-right-bg" : isWrong ? "border-quiz-coral bg-quiz-wrong-bg" : "border-quiz-option-border bg-quiz-option enabled:hover:border-gold/70"}`}>
+                  <span className="text-gold">{String.fromCharCode(65 + i)}</span>
+                  <span>{o}</span>
+                </button>
+              );
+            })}
+          </div>
+          {picked !== null && (
+            <>
+              <div role="status" className="mt-4 rounded-2xl bg-parchment p-4 text-ink">
+                <p className="font-bold">{picked === item.correct ? "Isso! A resposta é: " : "Quase! A resposta é: "}{item.answer}.</p>
+                <p className="mt-1 text-sm">{item.note}</p>
+                <p className="mt-2 text-sm font-bold text-quiz-verse">{item.ref}</p>
+              </div>
+              <button type="button" onClick={next} className="mt-4 w-full rounded-2xl bg-gold py-3.5 font-bold text-navy-deep shadow-[0_6px_0_0_var(--quiz-verse)] transition active:translate-y-1 active:shadow-none">
+                {step === QUIZ.length - 1 ? "Ver resultado" : "Próxima pergunta"}
+              </button>
+            </>
+          )}
+        </>
+      )}
+    </div>
   );
 }
