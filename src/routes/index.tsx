@@ -306,7 +306,10 @@ function OdisseiaLanding() {
                   </li>
                 ))}
               </ul>
-              <a href="#espera" className="btn-gold mt-6 inline-flex px-5 py-2.5 text-xs max-md:mx-auto">Baixe o Aplicativo <ArrowRight size={16} /></a>
+              <div className="mt-6 flex max-md:justify-center">
+                <a href="#espera" className="btn-gold px-5 py-2.5 text-xs">Baixe o Aplicativo <ArrowRight size={16} /></a>
+              </div>
+
             </div>
           ))}
         </div>
