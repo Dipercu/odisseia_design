@@ -181,7 +181,7 @@ body { font-family: var(--font-sans); }
 /* Cinematic adventure system: independent, readable layers; no parallax */
 .scene-section { min-height: 490px; display:flex; align-items:center; padding-block:clamp(4rem,8vw,7rem); }
 .scene-section:first-of-type { min-height:740px; }
-.scene-image { transform:none !important; filter:saturate(.88) brightness(.72); object-position:center; }
+.scene-image { transform:none !important; object-position:center; }
 .scene-section::before { content:""; position:absolute; inset:0; z-index:-9; pointer-events:none; background:linear-gradient(90deg,rgba(5,14,32,.82),rgba(5,14,32,.36) 60%,rgba(5,14,32,.55)),linear-gradient(0deg,rgba(5,14,32,.85),transparent 24%,transparent 75%,rgba(5,14,32,.6)); }
 .scene-copy { position:relative; isolation:isolate; }
 .scene-copy h1,.scene-copy h2 { text-wrap:balance; letter-spacing:-.025em; }
