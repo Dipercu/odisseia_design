@@ -8,3 +8,4 @@
 - [x] Integrate the original hero mascot with contact shadows and sunset ambient light, without redrawing it.
 - [x] Add scroll reveals, interactive element effects and gentle mascot movement; verify normal and reduced-motion behavior.
 - [x] Mirror the hero mascot horizontally while retaining its movement and matching shadows.
+- [x] Center the waitlist form card in scene 7 and widen it; verify layout at desktop and mobile widths.
