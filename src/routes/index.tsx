@@ -247,9 +247,10 @@ function OdisseiaLanding() {
               <p className="text-[11px] font-semibold uppercase tracking-[.2em] text-gold max-md:text-center">{tab.kicker}</p>
               <h3 className="mt-2 font-display text-2xl leading-tight md:text-3xl max-md:text-center">{tab.label}</h3>
               <p className="mt-3 max-w-2xl text-sm leading-6 text-foreground/90 max-md:mx-auto max-md:text-center">{tab.text}</p>
-              <ul className="mt-5 grid gap-x-6 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
+              <ul className="mt-5 grid gap-x-6 gap-y-2 sm:grid-cols-2 lg:grid-cols-3 max-md:mx-auto max-md:w-fit">
                 {tab.items.map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-foreground/90 max-md:justify-center">
+                  <li key={item} className="flex items-start gap-2 text-sm text-foreground/90">
+
                     <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden />
                     <span>{item}</span>
                   </li>
