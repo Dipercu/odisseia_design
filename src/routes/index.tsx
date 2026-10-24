@@ -13,10 +13,6 @@ import mascot from "@/assets/odisseia-mascote-original.png.asset.json";
 const thAt = explore;
 const thNt = jornada;
 const thPb = idades;
-const mascotPlacement: Record<string, string> = {
-  [hero]: "mascot-hero", [jornada]: "mascot-jornada", [divertido]: "mascot-divertido",
-  [explore]: "mascot-explore", [quiz]: "mascot-quiz", [idades]: "mascot-idades", [leve]: "mascot-leve",
-};
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -45,11 +41,11 @@ function Logo({ big = false }: { big?: boolean }) {
   );
 }
 
-function Scene({ src, children, className = "", id, imgClass = "" }: { src: string; children: React.ReactNode; className?: string; id?: string; imgClass?: string }) {
+function Scene({ src, children, className = "", id, imgClass = "", mascot = false }: { src: string; children: React.ReactNode; className?: string; id?: string; imgClass?: string; mascot?: boolean }) {
   return (
     <section id={id} className={`scene-section relative isolate scroll-mt-16 overflow-hidden ${className}`}>
       <img src={src} alt="" aria-hidden className={`scene-image absolute inset-0 -z-20 h-full w-full object-cover ${imgClass}`} />
-      <img src={mascot.url} alt="Mascote original de Odisseia Bíblica" width={1351} height={1164} className={`scene-mascot ${mascotPlacement[src] ?? ""}`} />
+      {mascot && <img src={mascotSrc.url} alt="Mascote original de Odisseia Bíblica" width={1351} height={1164} className="scene-mascot mascot-hero" />}
       {children}
     </section>
   );
@@ -93,7 +89,7 @@ function OdisseiaLanding() {
       </header>
 
       {/* 1 Hero */}
-      <Scene id="inicio" src={hero} imgClass="object-[70%_center]" className="flex min-h-[640px] items-center pt-24 pb-12 lg:min-h-[720px]">
+      <Scene id="inicio" src={hero} mascot imgClass="object-[70%_center]" className="flex min-h-[640px] items-center pt-24 pb-12 lg:min-h-[720px]">
         <div className="fade-l absolute inset-0 -z-10" />
         <div className="mx-auto w-full max-w-7xl px-5 lg:px-8">
           <div className="scene-copy max-w-xl rounded-2xl bg-navy-deep/65 p-6 backdrop-blur-sm md:bg-transparent md:p-0">
@@ -153,7 +149,6 @@ function OdisseiaLanding() {
               <a key={t} href="#espera" className="group flex items-center overflow-hidden rounded-xl border border-foreground/40 bg-navy-deep/80 backdrop-blur transition hover:border-gold">
                 <span className="relative block h-20 w-32 shrink-0 overflow-hidden">
                   <img src={img} alt="" className="h-full w-full object-cover" />
-                  <img src={mascot.url} alt={t} width={1351} height={1164} className="absolute inset-0 h-full w-full object-contain" />
                 </span>
                 <span className="flex-1 px-4 text-sm font-semibold uppercase">{t}</span>
                 <span className="mr-4 grid h-7 w-7 place-items-center rounded-full border border-foreground/60 transition group-hover:border-gold group-hover:text-gold"><ArrowRight size={14} /></span>
