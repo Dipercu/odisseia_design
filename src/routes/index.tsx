@@ -17,6 +17,34 @@ const thAt = explore;
 const thNt = jornada;
 const thPb = idades;
 
+const EXPLORE_TABS = [
+  {
+    id: "at",
+    img: thAt,
+    label: "Antigo Testamento",
+    kicker: "39 livros • de Gênesis a Malaquias",
+    text: "Do começo do mundo à promessa de um Salvador: a caminhada de um povo que espera, erra e é conduzido por aquilo que Deus prometeu.",
+    items: ["A criação do mundo", "Noé e o dilúvio", "Abraão, Isaque e Jacó", "Moisés e a saída do Egito", "Davi e Golias", "Os profetas"],
+  },
+  {
+    id: "nt",
+    img: thNt,
+    label: "Novo Testamento",
+    kicker: "27 livros • de Mateus a Apocalipse",
+    text: "A vida de Jesus, a igreja que nasce e a esperança do céu. O que foi prometido se cumpre e ganha novo sentido.",
+    items: ["O nascimento de Jesus", "Parábolas e milagres", "A cruz e a ressurreição", "A igreja em Atos", "As cartas de Paulo", "O Apocalipse"],
+  },
+  {
+    id: "pb",
+    img: thPb,
+    label: "Personagens Bíblicos",
+    kicker: "Homens e mulheres • de Gênesis a Apocalipse",
+    text: "Gente comum, coragem extraordinária. Cada personagem é uma porta para entender a fé na prática do dia a dia.",
+    items: ["Rute, a que não desistiu", "Ester, para um tempo como este", "Pedro, do medo à missão", "Maria, a mãe de Jesus", "Paulo, de perseguidor a apóstolo", "Sansão, força e fraqueza"],
+  },
+];
+
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -124,6 +152,8 @@ function Scene({ src, mobileSrc, children, className = "", id, imgClass = "", ma
 
 function OdisseiaLanding() {
   const [answer, setAnswer] = useState<number | null>(null);
+  const [openTab, setOpenTab] = useState("at");
+
 
   const options = ["Amar a Deus", "Ser o primeiro", "Vencer inimigos", "Construir um templo"];
 
@@ -187,25 +217,51 @@ function OdisseiaLanding() {
       {/* 4 Explore */}
       <Scene src={explore} className="py-12 md:py-16">
         <div className="fade-l absolute inset-0 -z-10" />
-        <div className="mx-auto grid w-full max-w-7xl items-center gap-8 px-5 md:grid-cols-[1fr_1fr_1fr] lg:px-8">
-          <div>
-            <h2 className="font-display text-4xl leading-tight md:text-5xl max-md:text-center">EXPLORE A BÍBLIA COM UM NOVO <span className="text-gold">OLHAR</span></h2>
-            <p className="mt-4 text-sm leading-6 text-foreground/90 max-md:text-center">Viaje por grandes histórias, conheça personagens marcantes e reviva momentos que revelam o plano de Deus para a humanidade.</p>
+        <div className="mx-auto w-full max-w-7xl px-5 lg:px-8">
+          <div className="grid items-center gap-8 md:grid-cols-[1fr_1fr_1fr]">
+            <div>
+              <h2 className="font-display text-4xl leading-tight md:text-5xl max-md:text-center">EXPLORE A BÍBLIA COM UM NOVO <span className="text-gold">OLHAR</span></h2>
+              <p className="mt-4 text-sm leading-6 text-foreground/90 max-md:text-center">Viaje por grandes histórias, conheça personagens marcantes e reviva momentos que revelam o plano de Deus para a humanidade.</p>
+            </div>
+            <div className="hidden md:block" />
+            <div className="space-y-3">
+              {EXPLORE_TABS.map((tab) => {
+                const active = openTab === tab.id;
+                return (
+                  <button type="button" key={tab.id} onClick={() => setOpenTab(active ? "" : tab.id)} aria-expanded={active} aria-controls="explore-conteudo"
+                    className={`group flex w-full items-center overflow-hidden rounded-xl border bg-navy-deep/80 text-left backdrop-blur transition ${active ? "border-gold" : "border-foreground/40 hover:border-gold"}`}>
+                    <span className="relative block h-20 w-32 shrink-0 overflow-hidden">
+                      <img src={tab.img} loading="lazy" decoding="async" alt="" className="h-full w-full object-cover" />
+                    </span>
+                    <span className="flex-1 px-4 text-sm font-semibold uppercase">{tab.label}</span>
+                    <span className={`mr-4 grid h-7 w-7 shrink-0 place-items-center rounded-full border transition ${active ? "border-gold text-gold" : "border-foreground/60 group-hover:border-gold group-hover:text-gold"}`}>
+                      <ArrowRight size={14} className={`transition-transform duration-300 ${active ? "rotate-90" : ""}`} />
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
-          <div className="hidden md:block" />
-          <div className="space-y-3">
-            {[[thAt, "Antigo Testamento"], [thNt, "Novo Testamento"], [thPb, "Personagens Bíblicos"]].map(([img, t]) => (
-              <a key={t} href="#espera" className="group flex items-center overflow-hidden rounded-xl border border-foreground/40 bg-navy-deep/80 backdrop-blur transition hover:border-gold">
-                <span className="relative block h-20 w-32 shrink-0 overflow-hidden">
-                  <img src={img} loading="lazy" decoding="async" alt="" className="h-full w-full object-cover" />
-                </span>
-                <span className="flex-1 px-4 text-sm font-semibold uppercase">{t}</span>
-                <span className="mr-4 grid h-7 w-7 place-items-center rounded-full border border-foreground/60 transition group-hover:border-gold group-hover:text-gold"><ArrowRight size={14} /></span>
-              </a>
-            ))}
-          </div>
+          {EXPLORE_TABS.filter((tab) => tab.id === openTab).map((tab) => (
+            <div key={tab.id} id="explore-conteudo" className="explore-panel mt-6 rounded-2xl border border-gold/20 bg-navy-deep/85 p-6 backdrop-blur-md md:p-8">
+              <p className="text-[11px] font-semibold uppercase tracking-[.2em] text-gold max-md:text-center">{tab.kicker}</p>
+              <h3 className="mt-2 font-display text-2xl leading-tight md:text-3xl max-md:text-center">{tab.label}</h3>
+              <p className="mt-3 max-w-2xl text-sm leading-6 text-foreground/90 max-md:mx-auto max-md:text-center">{tab.text}</p>
+              <ul className="mt-5 grid gap-x-6 gap-y-2 sm:grid-cols-2 lg:grid-cols-3 max-md:mx-auto max-md:w-fit">
+                {tab.items.map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-foreground/90">
+
+                    <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <a href="#espera" className="btn-gold mt-6 inline-flex px-5 py-2.5 text-xs max-md:mx-auto">Baixe o Aplicativo <ArrowRight size={16} /></a>
+            </div>
+          ))}
         </div>
       </Scene>
+
 
       {/* 5 Quiz */}
       <Scene id="perguntas" src={quiz} className="py-12 md:py-16">
