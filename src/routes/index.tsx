@@ -236,19 +236,10 @@ function OdisseiaLanding() {
           <div className="scene-copy mx-auto w-full max-w-3xl rounded-2xl border border-gold/20 bg-navy-deep/85 p-7 backdrop-blur-md md:p-10">
             <h2 className="font-display text-4xl leading-tight md:text-5xl">LEVE A BÍBLIA <span className="block text-gold">COM VOCÊ</span></h2>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-foreground/90 md:text-base">Onde estiver, sempre há uma nova história para descobrir. Odisseia Bíblica no seu celular, pronto para se divertir.</p>
-            {state === "done" ? <p role="status" className="mt-6 rounded-xl border border-success/50 bg-success/15 p-4">Cadastro recebido! Acompanhe seu e-mail.</p> : (
-              <form onSubmit={subscribe} className="mt-6 grid gap-3 sm:grid-cols-2">
-                <label htmlFor="nome" className="sr-only">Nome</label>
-                <input id="nome" required maxLength={100} value={name} onChange={e => setName(e.target.value)} placeholder="Seu nome" className="w-full rounded-full border border-foreground/25 bg-navy/80 px-5 py-3.5 text-sm outline-none focus:border-gold md:text-base" />
-                <label htmlFor="email" className="sr-only">E-mail</label>
-                <input id="email" type="email" required maxLength={254} value={email} onChange={e => setEmail(e.target.value)} placeholder="voce@exemplo.com" className="w-full rounded-full border border-foreground/25 bg-navy/80 px-5 py-3.5 text-sm outline-none focus:border-gold md:text-base" />
-                <button disabled={state === "sending"} className="btn-gold w-full justify-center px-6 py-3.5 text-sm disabled:opacity-50 sm:col-span-2">
-                  <span className="grid h-8 w-8 place-items-center rounded-full bg-navy-deep text-gold"><ArrowRight size={18} /></span>
-                  {state === "sending" ? "Enviando..." : "Entrar na lista de espera"}
-                </button>
-                {state === "error" && <p role="alert" className="text-sm text-destructive sm:col-span-2">{error}</p>}
-              </form>
-            )}
+            <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
+              <StoreBadge store="apple" href={APP_STORE_URL} />
+              <StoreBadge store="google" href={PLAY_STORE_URL} />
+            </div>
           </div>
         </div>
       </Scene>
