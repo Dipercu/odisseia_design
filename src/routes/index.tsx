@@ -219,22 +219,21 @@ function OdisseiaLanding() {
 
       {/* 7 Leve / waitlist */}
       <Scene id="espera" src={leve} imgClass="object-[30%_center]" className="py-10">
-        <div className="mx-auto grid w-full max-w-7xl px-5 md:grid-cols-[1fr_1.1fr] lg:px-8">
-          <div className="hidden md:block" />
-          <div className="scene-copy max-w-md rounded-2xl border border-gold/20 bg-navy-deep/85 p-7 backdrop-blur-md">
-            <h2 className="font-display text-4xl leading-tight">LEVE A BÍBLIA <span className="block text-gold">COM VOCÊ</span></h2>
-            <p className="mt-3 text-sm leading-6 text-foreground/90">Onde estiver, sempre há uma nova história para descobrir. Odisseia Bíblica no seu celular, pronto para se divertir.</p>
+        <div className="mx-auto w-full max-w-7xl px-5 lg:px-8">
+          <div className="scene-copy mx-auto w-full max-w-3xl rounded-2xl border border-gold/20 bg-navy-deep/85 p-7 backdrop-blur-md md:p-10">
+            <h2 className="font-display text-4xl leading-tight md:text-5xl">LEVE A BÍBLIA <span className="block text-gold">COM VOCÊ</span></h2>
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-foreground/90 md:text-base">Onde estiver, sempre há uma nova história para descobrir. Odisseia Bíblica no seu celular, pronto para se divertir.</p>
             {state === "done" ? <p role="status" className="mt-6 rounded-xl border border-success/50 bg-success/15 p-4">Cadastro recebido! Acompanhe seu e-mail.</p> : (
-              <form onSubmit={subscribe} className="mt-5 space-y-3">
+              <form onSubmit={subscribe} className="mt-6 grid gap-3 sm:grid-cols-2">
                 <label htmlFor="nome" className="sr-only">Nome</label>
-                <input id="nome" required maxLength={100} value={name} onChange={e => setName(e.target.value)} placeholder="Seu nome" className="w-full rounded-full border border-foreground/25 bg-navy/80 px-5 py-3 text-sm outline-none focus:border-gold" />
+                <input id="nome" required maxLength={100} value={name} onChange={e => setName(e.target.value)} placeholder="Seu nome" className="w-full rounded-full border border-foreground/25 bg-navy/80 px-5 py-3.5 text-sm outline-none focus:border-gold md:text-base" />
                 <label htmlFor="email" className="sr-only">E-mail</label>
-                <input id="email" type="email" required maxLength={254} value={email} onChange={e => setEmail(e.target.value)} placeholder="voce@exemplo.com" className="w-full rounded-full border border-foreground/25 bg-navy/80 px-5 py-3 text-sm outline-none focus:border-gold" />
-                <button disabled={state === "sending"} className="btn-gold py-3 pr-7 pl-3 text-sm disabled:opacity-50">
+                <input id="email" type="email" required maxLength={254} value={email} onChange={e => setEmail(e.target.value)} placeholder="voce@exemplo.com" className="w-full rounded-full border border-foreground/25 bg-navy/80 px-5 py-3.5 text-sm outline-none focus:border-gold md:text-base" />
+                <button disabled={state === "sending"} className="btn-gold w-full justify-center px-6 py-3.5 text-sm disabled:opacity-50 sm:col-span-2">
                   <span className="grid h-8 w-8 place-items-center rounded-full bg-navy-deep text-gold"><ArrowRight size={18} /></span>
                   {state === "sending" ? "Enviando..." : "Entrar na lista de espera"}
                 </button>
-                {state === "error" && <p role="alert" className="text-sm text-destructive">{error}</p>}
+                {state === "error" && <p role="alert" className="text-sm text-destructive sm:col-span-2">{error}</p>}
               </form>
             )}
           </div>
