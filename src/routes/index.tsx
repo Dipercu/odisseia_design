@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, BookOpen, CheckCircle2, Crown, Gamepad2, Heart, Users, UserRound, BarChart3, Youtube, Instagram, Facebook, Compass } from "lucide-react";
 import hero from "@/assets/s1-hero-background.png";
+import heroMobile from "@/assets/s1-hero-mobile.png";
 import jornada from "@/assets/s2-jornada-background.png";
 import divertido from "@/assets/s3-divertido-background.png";
 import explore from "@/assets/s4-explore-background.png";
@@ -76,7 +77,7 @@ function StoreBadge({ store, href }: { store: "apple" | "google"; href: string }
   );
 }
 
-function Scene({ src, children, className = "", id, imgClass = "", mascot = false }: { src: string; children: React.ReactNode; className?: string; id?: string; imgClass?: string; mascot?: boolean }) {
+function Scene({ src, mobileSrc, children, className = "", id, imgClass = "", mascot = false }: { src: string; mobileSrc?: string; children: React.ReactNode; className?: string; id?: string; imgClass?: string; mascot?: boolean }) {
   const sceneRef = useRef<HTMLElement>(null);
   const [animateMascot, setAnimateMascot] = useState(false);
   useEffect(() => {
@@ -101,7 +102,14 @@ function Scene({ src, children, className = "", id, imgClass = "", mascot = fals
   }, []);
   return (
     <section ref={sceneRef} id={id} className={`scene-section relative isolate scroll-mt-16 overflow-hidden ${className}`}>
-      <img src={src} alt="" aria-hidden className={`scene-image absolute inset-0 -z-20 h-full w-full object-cover ${imgClass}`} />
+      {mobileSrc ? (
+        <>
+          <img src={mobileSrc} alt="" aria-hidden className={`scene-image absolute inset-0 -z-20 h-full w-full object-cover md:hidden ${imgClass}`} />
+          <img src={src} alt="" aria-hidden className={`scene-image absolute inset-0 -z-20 h-full w-full object-cover max-md:hidden ${imgClass}`} />
+        </>
+      ) : (
+        <img src={src} alt="" aria-hidden className={`scene-image absolute inset-0 -z-20 h-full w-full object-cover ${imgClass}`} />
+      )}
       {mascot && (
         <div className={`mascot-stage mascot-hero${animateMascot ? " mascot-natural-motion" : ""}`}>
           <img src={animateMascot ? mascotMotion.url : mascotSrc.url} alt="" aria-hidden width={1351} height={1164} className="mascot-cast-shadow" />
@@ -129,7 +137,7 @@ function OdisseiaLanding() {
       </header>
 
       {/* 1 Hero */}
-      <Scene id="inicio" src={hero} mascot imgClass="object-[70%_center]" className="flex min-h-[640px] items-center pt-24 pb-12 lg:min-h-[720px]">
+      <Scene id="inicio" src={hero} mobileSrc={heroMobile} mascot imgClass="object-[70%_center]" className="flex min-h-[640px] items-center pt-24 pb-12 lg:min-h-[720px]">
         <div className="fade-l absolute inset-0 -z-10" />
         <div className="mx-auto w-full max-w-7xl px-5 lg:px-8">
           <div className="scene-copy max-w-xl max-md:mx-auto max-md:text-center">
