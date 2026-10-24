@@ -265,7 +265,7 @@ function OdisseiaLanding() {
       <footer className="bg-navy-deep px-5 py-8 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 md:flex-row">
           <div><Logo big /><p className="mt-1 pl-14 text-[10px] tracking-[.2em] text-foreground/70">DIVIRTA-SE • APRENDA • VIVA A PALAVRA</p></div>
-          <div className="flex gap-4 text-foreground/80"><a href="#" aria-label="YouTube"><Youtube size={20} /></a><a href="#" aria-label="Instagram"><Instagram size={20} /></a><a href="#" aria-label="Facebook"><Facebook size={20} /></a></div>
+          <div className="flex gap-4 text-foreground/80"><a href="https://www.youtube.com/@odisseiabiblica" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><Youtube size={20} /></a><a href="https://www.instagram.com/odisseiabiblica/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram size={20} /></a><a href="https://www.facebook.com/odisseiabiblica" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><Facebook size={20} /></a></div>
         </div>
       </footer>
     </main>
