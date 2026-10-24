@@ -41,8 +41,8 @@ function Logo({ big = false }: { big?: boolean }) {
 
 function Scene({ src, children, className = "", id, imgClass = "" }: { src: string; children: React.ReactNode; className?: string; id?: string; imgClass?: string }) {
   return (
-    <section id={id} className={`relative isolate scroll-mt-16 overflow-hidden ${className}`}>
-      <img src={src} alt="" aria-hidden className={`absolute inset-0 -z-20 h-full w-full object-cover ${imgClass}`} />
+    <section id={id} className={`scene-section relative isolate scroll-mt-16 overflow-hidden ${className}`}>
+      <img src={src} alt="" aria-hidden className={`scene-image absolute inset-0 -z-20 h-full w-full object-cover ${imgClass}`} />
       {children}
     </section>
   );
@@ -89,7 +89,7 @@ function OdisseiaLanding() {
       <Scene id="inicio" src={hero} imgClass="object-[70%_center]" className="flex min-h-[640px] items-center pt-24 pb-12 lg:min-h-[720px]">
         <div className="fade-l absolute inset-0 -z-10" />
         <div className="mx-auto w-full max-w-7xl px-5 lg:px-8">
-          <div className="max-w-xl">
+          <div className="scene-copy max-w-xl rounded-2xl bg-navy-deep/65 p-6 backdrop-blur-sm md:bg-transparent md:p-0">
             <p className="text-xs font-semibold uppercase tracking-[.25em] text-gold">Uma nova jornada está começando</p>
             <h1 className="mt-4 font-display text-4xl leading-[1.08] md:text-[3.4rem]">DESCUBRA HISTÓRIAS REAIS <span className="text-gold">QUE TRANSFORMAM SUA VIDA</span></h1>
             <p className="mt-5 max-w-md text-base leading-7 text-foreground/90">Odisseia Bíblica é um jogo de perguntas e respostas que torna o aprendizado da Bíblia uma experiência incrível, envolvente e divertida.</p>
@@ -107,7 +107,7 @@ function OdisseiaLanding() {
       {/* 2 Jornada */}
       <Scene id="como-funciona" src={jornada} imgClass="object-left" className="flex min-h-[420px] items-center py-12">
         <div className="w-full">
-          <div className="ml-[21%] max-w-[23%] pr-4 min-w-[260px] text-ink">
+          <div className="scene-copy mx-5 max-w-lg rounded-2xl bg-navy-deep/85 p-7 text-foreground shadow-xl backdrop-blur-md md:ml-[10%] md:p-10">
             <h2 className="font-display text-2xl font-semibold leading-tight md:text-4xl">MAIS QUE UM JOGO, UMA JORNADA DE FÉ</h2>
             <p className="mt-4 font-medium leading-7">Cada desafio superado te leva mais perto de conhecer a palavra de Deus e viver grandes histórias que marcaram o mundo.</p>
           </div>
@@ -118,7 +118,7 @@ function OdisseiaLanding() {
       <Scene id="funcionalidades" src={divertido} imgClass="object-[25%_center]" className="py-14 md:py-20">
         <div className="mx-auto grid w-full max-w-7xl px-5 md:grid-cols-[1fr_1.15fr] lg:px-8">
           <div className="hidden md:block" />
-          <div className="rounded-2xl bg-navy-deep/60 p-6 md:bg-transparent md:p-0">
+          <div className="scene-copy rounded-2xl border border-gold/15 bg-navy-deep/80 p-7 backdrop-blur-md md:p-10">
             <p className="text-sm uppercase tracking-[.25em] text-gold">Aprender a Bíblia</p>
             <h2 className="mt-3 font-display text-4xl leading-tight md:text-5xl">NUNCA FOI TÃO <span className="block text-5xl text-gold md:text-6xl">DIVERTIDO</span></h2>
             <p className="mt-4 max-w-md text-foreground/90">Jogue, responda, explore e evolua em uma experiência feita para todas as idades.</p>
@@ -171,7 +171,7 @@ function OdisseiaLanding() {
             </div>
             {answer !== null && <p role="status" className="mt-3 text-xs font-medium">{answer === 0 ? "Correto! Veja Mateus 22:37–38." : "Tente novamente! Dica: Mateus 22:37–38."}</p>}
           </div>
-          <div className="rounded-2xl bg-navy-deep/55 p-6 md:max-w-md md:bg-transparent md:p-0">
+          <div className="scene-copy rounded-2xl bg-navy-deep/85 p-7 backdrop-blur-md md:max-w-md">
             <h2 className="font-display text-3xl leading-tight md:text-4xl">PEQUENAS PERGUNTAS <span className="block text-gold">GRANDES APRENDIZADOS</span></h2>
             <p className="mt-4 text-sm leading-6 text-foreground/90 [text-shadow:0_2px_8px_var(--navy-deep)]">Aprenda de forma leve e envolvente com perguntas que desafiam o seu conhecimento e fortalecem a sua fé.</p>
           </div>
@@ -198,7 +198,7 @@ function OdisseiaLanding() {
       <Scene id="espera" src={leve} imgClass="object-[30%_center]" className="py-10">
         <div className="mx-auto grid w-full max-w-7xl px-5 md:grid-cols-[1fr_1.1fr] lg:px-8">
           <div className="hidden md:block" />
-          <div className="max-w-md rounded-2xl bg-navy-deep/65 p-6 backdrop-blur-sm">
+          <div className="scene-copy max-w-md rounded-2xl border border-gold/20 bg-navy-deep/85 p-7 backdrop-blur-md">
             <h2 className="font-display text-4xl leading-tight">LEVE A BÍBLIA <span className="block text-gold">COM VOCÊ</span></h2>
             <p className="mt-3 text-sm leading-6 text-foreground/90">Onde estiver, sempre há uma nova história para descobrir. Odisseia Bíblica no seu celular, pronto para jogar.</p>
             {state === "done" ? <p role="status" className="mt-6 rounded-xl border border-success/50 bg-success/15 p-4">Cadastro recebido! Acompanhe seu e-mail.</p> : (
