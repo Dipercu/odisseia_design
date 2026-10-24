@@ -129,14 +129,14 @@ export function SiteInfo() {
 
       <Bg src={bg_plans}><div className={wrap}>
         <Head kicker="Planos" title="Comece grátis. Vá mais fundo quando quiser." />
-        <div className="mx-auto mt-10 grid max-w-4xl gap-6 md:grid-cols-2">
+        <div className="mx-auto mt-10 grid max-w-4xl items-stretch gap-6 md:grid-cols-2">
           {plans.map((p) => (
-            <div key={p.name} className={`rounded-2xl border p-7 ${p.tag ? "border-gold bg-navy-deep/80 backdrop-blur-sm" : "border-gold/20 bg-navy-deep/75 backdrop-blur-sm"}`}>
-              {p.tag && <span className="text-xs font-semibold uppercase tracking-wider text-gold">{p.tag}</span>}
-              <h3 className="mt-1 font-display text-2xl">{p.name}</h3>
+            <div key={p.name} className="relative flex h-full flex-col rounded-2xl border border-gold bg-navy-deep/80 p-7 backdrop-blur-sm">
+              {p.tag && <span className="absolute -top-3 right-6 rounded-full border border-gold bg-navy-deep px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-gold">{p.tag}</span>}
+              <h3 className="font-display text-2xl">{p.name}</h3>
               <p className="mt-2 text-2xl font-semibold text-gold">{p.price}</p>
               <p className="text-xs text-foreground/70">{p.note}</p>
-              <ul className="mt-5 space-y-2 text-sm">
+              <ul className="mt-5 flex-1 space-y-2 text-sm">
                 {p.items.map((i) => <li key={i} className="flex gap-2"><Check size={16} className="mt-0.5 shrink-0 text-gold" />{i}</li>)}
               </ul>
               <a href="#espera" className="btn-gold mt-6 w-full justify-center px-5 py-3 text-xs">Baixe o Aplicativo <ArrowRight size={16} /></a>
