@@ -10,3 +10,5 @@
 - [x] Mirror the hero mascot horizontally while retaining its movement and matching shadows.
 - [x] Center the waitlist form card in scene 7 and widen it; verify layout at desktop and mobile widths.
 - [x] Remove the header navigation menu (desktop links and mobile hamburger), keeping logo and waitlist button.
+- [x] Change every "Entrar na lista de espera" call to action to "Baixe o Aplicativo" and replace the scene 7 form with App Store and Google Play buttons.
+- [ ] Put the real Google Play and App Store links into the download buttons (APP_STORE_URL and PLAY_STORE_URL in src/routes/index.tsx are still "#").
