@@ -378,7 +378,7 @@ function QuizCard() {
   const [picked, setPicked] = useState<number | null>(null);
   const [results, setResults] = useState<(boolean | null)[]>([null, null, null]);
   const [done, setDone] = useState(false);
-  const item = QUIZ[step];
+  const item = QUIZ[step]!;
   const pick = (i: number) => {
     if (picked !== null) return;
     setPicked(i);
