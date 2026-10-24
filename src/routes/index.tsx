@@ -29,7 +29,6 @@ export const Route = createFileRoute("/")({
   component: OdisseiaLanding,
 });
 
-const nav = [["Início", "#inicio"], ["Como Funciona", "#como-funciona"], ["Funcionalidades", "#funcionalidades"], ["Depoimentos", "#idades"], ["FAQ", "#perguntas"]];
 
 function Logo({ big = false }: { big?: boolean }) {
   return (
@@ -257,7 +256,6 @@ function OdisseiaLanding() {
       <footer className="bg-navy-deep px-5 py-8">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 md:flex-row">
           <div><Logo big /><p className="mt-1 pl-14 text-[10px] tracking-[.2em] text-foreground/70">DIVIRTA-SE • APRENDA • VIVA A PALAVRA</p></div>
-          <nav className="flex gap-6 text-xs text-foreground/75">{nav.filter(n => n[0] !== "Depoimentos").map(([l, h]) => <a key={h} href={h} className="hover:text-gold">{l}</a>)}</nav>
           <div className="flex gap-4 text-foreground/80"><a href="#" aria-label="YouTube"><Youtube size={20} /></a><a href="#" aria-label="Instagram"><Instagram size={20} /></a><a href="#" aria-label="Facebook"><Facebook size={20} /></a></div>
         </div>
       </footer>

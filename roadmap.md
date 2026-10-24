@@ -13,4 +13,5 @@
 - [x] Change every "Entrar na lista de espera" call to action to "Baixe o Aplicativo" and replace the scene 7 form with App Store and Google Play buttons.
 - [x] Center the scene 7 heading and paragraph above the download buttons.
 - [x] Generate and review natural AI mascot motion, convert to a transparent GIF and replace the first-scene mascot; verify playback, mirroring and original PNG for reduced motion.
+- [x] Remove the footer menu links, keeping logo, tagline and social icons.
 - [ ] Put the real Google Play and App Store links into the download buttons (APP_STORE_URL and PLAY_STORE_URL in src/routes/index.tsx are still "#").
