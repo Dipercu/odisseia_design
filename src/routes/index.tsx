@@ -8,7 +8,7 @@ import explore from "@/assets/s4-explore-background.png";
 import quiz from "@/assets/s5-quiz-background.png";
 import idades from "@/assets/s6-idades-background.png";
 import leve from "@/assets/s7-leve-background.png";
-import mascot from "@/assets/odisseia-mascote-original.png.asset.json";
+import mascotSrc from "@/assets/odisseia-mascote-original.png.asset.json";
 
 const thAt = explore;
 const thNt = jornada;
