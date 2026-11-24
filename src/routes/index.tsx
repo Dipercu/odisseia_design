@@ -48,11 +48,16 @@ const EXPLORE_TABS = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Odisseia Bíblica — Uma jornada de fé" },
-      { name: "description", content: "App de perguntas e respostas que torna o aprendizado da Bíblia incrível, envolvente e divertido. Baixe o Aplicativo." },
-      { property: "og:title", content: "Odisseia Bíblica — Uma jornada de fé" },
-      { property: "og:description", content: "Descubra histórias reais que transformam sua vida. Baixe o Aplicativo." },
+      { title: "Odisseia Bíblica | Aplicativo para Aprender a Bíblia" },
+      { name: "description", content: "Odisseia Bíblica é um aplicativo cristão para aprender a Bíblia com perguntas e respostas, desafios diários, histórias bíblicas, níveis e conquistas." },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { property: "og:locale", content: "pt_BR" },
+      { property: "og:site_name", content: "Odisseia Bíblica" },
+      { property: "og:title", content: "Odisseia Bíblica | Aplicativo para Aprender a Bíblia" },
+      { property: "og:description", content: "Conheça o aplicativo Odisseia Bíblica. Explore histórias, responda desafios bíblicos, evolua em níveis e aprenda a Palavra de forma interativa." },
       { property: "og:type", content: "website" },
+      { name: "twitter:title", content: "Odisseia Bíblica | Aplicativo para Aprender a Bíblia" },
+      { name: "twitter:description", content: "Aprenda a Bíblia com histórias, desafios, perguntas e respostas no aplicativo Odisseia Bíblica." },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
